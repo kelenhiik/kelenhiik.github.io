@@ -1,11 +1,11 @@
 # *Thursday 15.02.17*
 Created a Github account and made two online repositories from tutorials. Tried out various functions:
 
-`mkdir name` - _Creates empty directory to comp.
+`mkdir name` - _Creates empty directory to comp._
 
-`cd name` - _Enter the directory.
+`cd name` - _Enter the directory._
 
-`git init` - _Creates empty repository from that.
+`git init` - _Creates empty repository from that._
 
 `nano filename.txt`- _Creates the file using the specified program, extensions can be different_
 
@@ -15,17 +15,17 @@ Created a Github account and made two online repositories from tutorials. Tried 
 will tell you that there is nothing to commit. However, if you edited the text and use status it will
 tell you it is untracked so before committing anything you have to add it to be tracked._
 
-`git diff` - _Differences in the file compared to the most recently saved one.
+`git diff` - _Differences in the file compared to the most recently saved one._
                 
 `git commit -m` - _Anything you write here in quotation marks will be added as a comment_
 
 `git add filename.txt` - _This is for adding it for tracking._
 
-`git add <directory with files>` - _Adds all files in the specified directory for tracking
+`git add <directory with files>` - _Adds all files in the specified directory for tracking._
 
 `git push origin master` - _Adds my updates to the online version masterbranch? Using "pull" instead of push copies changes from remote to local._
 
-`git clone https:plapla` - Clones a repository I make online to the computer.
+`git clone https:plapla` - _Clones a repository I make online to the computer._
 
 Tried to make a diary for the course work updates and progress by following the steps [here](https://guides.github.com/features/pages/). Github suggested to create a readme file and then only published whatever I had written there so all the text written here was not published. Could not figure out what was wrong or how to change it
 

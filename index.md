@@ -36,3 +36,4 @@ Spent the whole morning and evening trying to figure out why the diary does not 
 
 # *Saturday 17.02.17*
 Spent the whole morning still trying to figure out why this page only publishes my README file. Then changed the name of the file I want to be published to "index" I don't know what happened, but it worked. I realized after messing around for an hour I can not format the text in the way I had planned with starting some lines with indendations.
+Used ssh to log into the school's computer and edit the index file. Got a problem using nano, it would not let me save the addition. Now trying to use emacs.

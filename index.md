@@ -5,9 +5,11 @@ Created a Github account and made two online repositories from tutorials.
 
 `cat filename.txt` - _Shows the text I wrote in the file on the commandline_
 
-`git status` - _Shows what is going on with your file. If you have added something and commited it in, then using this will tell        
-                you that there is nothing to commit. However, if you edited the text and use  status it will tell you it is 
-                untracked so before committing anything you have to add it to be tracked._
+`git status` - _Shows what is going on with your file. If you have added something and commited it in, then using this 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will tell you that there is nothing to commit. However, if you edited the text and use  status it will
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tell you it is untracked so before committing anything you have to add it to be tracked._
                 
 `git commit -m` - _Anything you write here in quotation marks will be added as a comment_
 

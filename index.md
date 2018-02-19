@@ -48,11 +48,15 @@ Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash
 
 Wrote my bash script for the project and uploaded it to my MTLS repository: 
 
-```#usage: bash folder.sh filename_of_project_main_directory
+```#usage: bash folder.sh and follow instructions
 
-mkdir "$1"
+echo "Enter the name for your project's main directory:"
 
-cd "$1" 
+read name
+
+mkdir "$name"
+
+cd "$name" 
 
 echo "This directory organizes a project that trains a SVM.
 
@@ -87,4 +91,4 @@ mkdir testing_results
 mkdir prediction_results```
 
 I wanted to make something basic, but this will probably need a few modifications. When running the script you have to enter
-bash folder.sh (this is the name of the script) Name (this is the name you want for the main directory to have that is going t hold all the other folders.)
+bash folder.sh and then it asks me for the name I want to use for my project's main directory.

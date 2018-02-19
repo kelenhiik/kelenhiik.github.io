@@ -48,7 +48,9 @@ Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash
 
 Wrote my bash script for the project and uploaded it to my MTLS repository: 
 
-```#usage: bash folder.sh and follow instructions
+```
+
+usage: bash folder.sh and follow instructions
 
 echo "Enter the name for your project's main directory:"
 

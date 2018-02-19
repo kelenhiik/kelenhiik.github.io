@@ -48,26 +48,43 @@ Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash
 
 Wrote my bash script for the project and uploaded it to my MTLS repository: 
 
-`#usage: bash folder.sh filename_of_project_main_directory
+```#usage: bash folder.sh filename_of_project_main_directory
 
-mkdir "$1" #| cd "$1" | mkdir bin | mkdir data
+mkdir "$1"
+
 cd "$1" 
+
 echo "This directory organizes a project that trains a SVM.
+
 It creates folders for:
+
 bin - scripts/binaries
+
 src - source codes
+
 data - has folders for training and testing sets
+
 results - contains folders with results from training/testing and prediction results." > README.txt
+
 mkdir bin
+
 mkdir data
+
 mkdir results
+
 mkdir src
+
 cd data
+
 mkdir training_sets
+
 mkdir testing_sets
+
 cd ../results
+
 mkdir testing_results
-mkdir prediction_results`
+
+mkdir prediction_results```
 
 I wanted to make something basic, but this will probably need a few modifications. When running the script you have to enter
 bash folder.sh (this is the name of the script) Name (this is the name you want for the main directory to have that is going t hold all the other folders.)

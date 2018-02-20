@@ -1,55 +1,149 @@
-# *Thursday 15.02.17*
-Created a Github account and made two online repositories from tutorials. Tried out various functions:
+# *Tuesday 20.02.17
 
-`mkdir name` - _Creates empty directory to comp._
+Had to write a parser for the data file in my project. Layout is always:
 
-`cd name` - _Enter the directory._
+first line: heading
 
-`git init` - _Creates empty repository from that._
+second line: sequence
 
-`nano filename.txt`- _Creates the file using the specified program, extensions can be different_
+third line: topology.
 
-`cat filename.txt` - _Shows the text I wrote in the file on the commandline_
+Tried to use previous parsers in the course which used dictionaries:
 
-`git status` - _Shows what is going on with your file. If you have added something and commited it in, then using this 
-will tell you that there is nothing to commit. However, if you edited the text and use status it will
-tell you it is untracked so before committing anything you have to add it to be tracked._
+```
+def fasta_parser(filename):
 
-`git diff` - _Differences in the file compared to the most recently saved one._
+    filehandle=open(filename,'r')
+    
+    fasta_dict={}
+    
+    for x in filehandle:
+    
+        x=x.rstrip()
+        
+        if x.startswith(">"):
+        
+            heading=x.split(">")
+            
+            keys=heading[1]
+            
+        else:
+        
+            values=x
+            
+            fasta_dict[keys] = values
+            
+    filehandle.close()
+    
+    return fasta_dict
+```
+I wanted to modify it so that after "else" it would assign the first line to a variable 1 second to a variable 2: ```else: variable1, variable2 = x```. Not sure why I thought that it is going to automatically assign the first line to the first variable, second to the second one and start over with the third one. It did print out everything nice when just printing out ``` values```, but even when I used to ```x.split()``` to split all the lines in the end and thus create two variables (since I used something similar a while back) - does not work. Not sure why, but could be because the last time I used it the idea was to split one line into 2 and then assign those to variables, here I already have all the lines separately... Using ```x[0 or 1 or 3]``` so maybe it then knows how to take the lines as separate units and I can just use the positions to assign them as values to a dictionary when I get around to doing it. Ofc did not work. Then I assumed that it doesn't work with lines, but with lists, then I tried to use the ```split``` again to get them as lists, but then they are not in one list, but all separate lists. Then I realized that I should just make them all into a list and thus I decided to do something like this:
+
+```
+def fasta_parser(filename):
+    
+    heading_list=[]
+    
+    seqtop_list=[]
+    
+    #seq_list=[]
+    
+    #top_list=[]
+    
+    filehandle=open(filename,'r')
+   
+    fasta_dict={}
+    
+    for x in filehandle:
+    
+        x=x.rstrip()
+        
+        if x.startswith(">"):
+        
+            heading=x.split(">")
+            
+            heading_list.append(heading[1])
+            
+        else:
+        
+            if len(x.strip()) != 0 : #add this since the last line in the file is an empty one.
+            
+                seqtop_list.append(x)
+```
+I saved and erased so many times that I am not sure if it was this one or not, but the main idea is again that I couldn't figure out how to make it work. I was always able to get the headings right, but never separate the other parts. Then I saw that there is something on the board about ```enumerate```. I have used that before and decided to try it, maybe it makes something clearer: it gives the position and value of an element. I couldn't think where will I use the positions, but I managed through trial and error to put together something like this:
+
+```
+def fasta_parser(filename):
+    
+    heading_list=[]
+    
+    seqtop_list=[]
+    
+    #seq_list=[]
+    
+    #top_list=[]
+    
+    for sitt1, sitt2 in enumerate (open(filename)):
+    
+        sitt2=sitt2.strip()
+        
+        #print (sitt1)
+        
+        if sitt2.startswith(">"):
+        
+            heading=sitt2.split(">")
+            
+            #print (heading)
+            
+            heading_list.append(heading[1])
+            
+        else:
+        
+            if len(sitt2.strip()) != 0 :
+            
+                seqtop_list.append(sitt2)
                 
-`git commit -m` - _Anything you write here in quotation marks will be added as a comment_
+    #seq_list.append(seqtop_list[::2])
+    
+    #top_list.append(seqtop_list[1::2])
+    
+    dict1=dict(zip(heading_list, zip(seqtop_list[::2], seqtop_list[1::2])))        
+                
+                #print(read)
+    print (dict1)
+    
+    
+```
+This actually __worked__. The whole enumerate thing didn't change much though, not sure why this should be useful in this task, but got the job done here too... In the beginning I tried to assign all of them into one list and then separate the positions into two new separate lists as can be seen the comment # parts, this was useless if I could just put it all together in the eventual ```dict``` function. Then I found out that I actually do need the ">" in the beginning of the headings and tried messing with it to get it out and realized that if I don't even have to remove it and I just have to have lists for the dictionary and in lists I can specify positions as I did here then why go through all the trouble and not just write a function that takes the file, puts all the lines into a list, takes out the linebreaks and keeps out the last empty line of the file - this just means put everything into a list and then just make a dictionary out of it using the positions, since I know that position 0 is always the heading, 1 is always the sequence and 2 is always the topology. This pattern happens after every 3 instances. So I just wrote this: 
 
-`git add filename.txt` - _This is for adding it for tracking._
+```
+def fasta_parser(filename):
 
-`git add <directory with files>` - _Adds all files in the specified directory for tracking._
+    list1=[]
+    
+    list1=[line.rstrip() for line in (open(filename,'r')) if len(line.strip()) != 0]
+    
+    dict1=dict(zip(list1[::3],  zip(list1[1::3],list1[2::3])))
+    
+    #for key in dict1:
+    
+        #seq, topol = dict1[key]
+        
+        #assert len(seq) == len(topol) -----for testing if it's right, if the lengths are the same, the chances are it is right.
+    
+    return (dict1)
 
-`git push origin master` - _Adds my updates to the online version masterbranch? Using "pull" instead of push copies changes from remote to local._
+if __name__ == "__main__": 
+    print(fasta_parser("8_state_smallerset.3line.txt"))
 
-`git clone https:plapla` - _Clones a repository I make online to the computer._
-
-Tried to make a diary for the course work updates and progress by following the steps [here](https://guides.github.com/features/pages/). Github suggested to create a readme file and then only published whatever I had written there so all the text written here was not published. Could not figure out what was wrong or how to change it
-
-
-# *Friday 16.02.17*
-Spent the whole morning and evening trying to figure out why the diary does not publish from my master branch, google did not help.
-
-
-# *Saturday 17.02.17*
-Spent the whole morning still trying to figure out why this page only publishes my README file. Then changed the name of the file I want to be published to "index" I don't know what happened, but it worked. I realized after messing around for an hour I can not format the text in the way I had planned with starting some lines with indendations.
-Used ssh to log into the school's computer and edit the index file. Got a problem using nano, it would not let me save the addition. Now trying to use emacs.
-
-
-# *Sunday 18.02.17*
-
-Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash.
-
+```
+As far as I am concerned it also __works and seems simpler__.
 
 # *Monday 19.02.17*
 
 Wrote my bash script for the project and uploaded it to my MTLS repository: 
 
 ```
-
 usage: bash folder.sh and follow instructions
 
 echo "Enter the name for your project's main directory:"
@@ -90,7 +184,58 @@ cd ../results
 
 mkdir testing_results
 
-mkdir prediction_results```
+mkdir prediction_results
+```
 
 I wanted to make something basic, but this will probably need a few modifications. When running the script you have to enter
 bash folder.sh and then it asks me for the name I want to use for my project's main directory.
+
+
+
+# *Sunday 18.02.17*
+
+Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash.
+
+
+
+# *Saturday 17.02.17*
+Spent the whole morning still trying to figure out why this page only publishes my README file. Then changed the name of the file I want to be published to "index" I don't know what happened, but it worked. I realized after messing around for an hour I can not format the text in the way I had planned with starting some lines with indendations.
+Used ssh to log into the school's computer and edit the index file. Got a problem using nano, it would not let me save the addition. Now trying to use emacs.
+
+
+
+# *Friday 16.02.17*
+Spent the whole morning and evening trying to figure out why the diary does not publish from my master branch, google did not help.
+
+
+
+# *Thursday 15.02.17*
+Created a Github account and made two online repositories from tutorials. Tried out various functions:
+
+`mkdir name` - _Creates empty directory to comp._
+
+`cd name` - _Enter the directory._
+
+`git init` - _Creates empty repository from that._
+
+`nano filename.txt`- _Creates the file using the specified program, extensions can be different_
+
+`cat filename.txt` - _Shows the text I wrote in the file on the commandline_
+
+`git status` - _Shows what is going on with your file. If you have added something and commited it in, then using this 
+will tell you that there is nothing to commit. However, if you edited the text and use status it will
+tell you it is untracked so before committing anything you have to add it to be tracked._
+
+`git diff` - _Differences in the file compared to the most recently saved one._
+                
+`git commit -m` - _Anything you write here in quotation marks will be added as a comment_
+
+`git add filename.txt` - _This is for adding it for tracking._
+
+`git add <directory with files>` - _Adds all files in the specified directory for tracking._
+
+`git push origin master` - _Adds my updates to the online version masterbranch? Using "pull" instead of push copies changes from remote to local._
+
+`git clone https:plapla` - _Clones a repository I make online to the computer._
+
+Tried to make a diary for the course work updates and progress by following the steps [here](https://guides.github.com/features/pages/). Github suggested to create a readme file and then only published whatever I had written there so all the text written here was not published. Could not figure out what was wrong or how to change it

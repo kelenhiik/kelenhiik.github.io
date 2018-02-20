@@ -1,4 +1,4 @@
-# *Tuesday 20.02.17
+# Tuesday 20.02.17
 
 Had to write a parser for the data file in my project. Layout is always:
 
@@ -37,7 +37,7 @@ def fasta_parser(filename):
     
     return fasta_dict
 ```
-I wanted to modify it so that after "else" it would assign the first line to a variable 1 second to a variable 2: ```else: variable1, variable2 = x```. Not sure why I thought that it is going to automatically assign the first line to the first variable, second to the second one and start over with the third one. It did print out everything nice when just printing out ``` values```, but even when I used to ```x.split()``` to split all the lines in the end and thus create two variables (since I used something similar a while back) - does not work. Not sure why, but could be because the last time I used it the idea was to split one line into 2 and then assign those to variables, here I already have all the lines separately... Using ```x[0 or 1 or 3]``` so maybe it then knows how to take the lines as separate units and I can just use the positions to assign them as values to a dictionary when I get around to doing it. Ofc did not work. Then I assumed that it doesn't work with lines, but with lists, then I tried to use the ```split``` again to get them as lists, but then they are not in one list, but all separate lists. Then I realized that I should just make them all into a list and thus I decided to do something like this:
+I wanted to modify it so that after "else" it would assign the first line to a variable 1 second to a variable 2: ```else: variable1, variable2 = x```. Not sure why I thought that it is going to automatically assign the first line to the first variable, second to the second one and start over with the third one. It did print out everything nice when just printing out ``` values```, but even when I used to ```x.split()``` to split all the lines in the end and thus create two variables (since I used something similar a while back) - does not work. Not sure why, but could be because the last time I used it the idea was to split one line into 2 and then assign those to variables (Vilde suggested this), here I already have all the lines separately... Using ```x[0 or 1 or 3]``` so maybe it then knows how to take the lines as separate units and I can just use the positions to assign them as values to a dictionary when I get around to doing it. Ofc did not work. It doesn't work with lines, but with lists. Then I tried to use the ```split``` again to get them as lists, but then they are not in one list, but all separate lists. Started many different files to understand what is going on, none worked and I still can't figure out how I could have easily gotten the part after "else" as separate units and didn't get much help on that so I guess it will remain a mistery. Then I scratched that and decided that I should just make them all into one list and thus I decided to do something like this:
 
 ```
 def fasta_parser(filename):
@@ -70,7 +70,7 @@ def fasta_parser(filename):
             
                 seqtop_list.append(x)
 ```
-I saved and erased so many times that I am not sure if it was this one or not, but the main idea is again that I couldn't figure out how to make it work. I was always able to get the headings right, but never separate the other parts. Then I saw that there is something on the board about ```enumerate```. I have used that before and decided to try it, maybe it makes something clearer: it gives the position and value of an element. I couldn't think where will I use the positions, but I managed through trial and error to put together something like this:
+I saved and erased so many times that I am not sure if it was this one or not, but the main idea is again that I couldn't figure out how to make it work. Then I decided to try ```enumerate```, which a classmate suggested and was also written on the board, I guess I missed it earlier. I have used that before and figured, maybe it makes something clearer: it gives the position and value of an element. I couldn't think where will I use the positions, but I managed through trial and error to put together something like this:
 
 ```
 def fasta_parser(filename):
@@ -107,7 +107,7 @@ def fasta_parser(filename):
     
     #top_list.append(seqtop_list[1::2])
     
-    dict1=dict(zip(heading_list, zip(seqtop_list[::2], seqtop_list[1::2])))        
+    dict1=dict(zip(heading_list, zip(seqtop_list[::2], seqtop_list[1::2]))) #found a similar thing in google, zips the keys and values and since I zip both values it kind of zips a zipped value as a value with the specified key.        
                 
                 #print(read)
     print (dict1)
@@ -137,9 +137,9 @@ if __name__ == "__main__":
     print(fasta_parser("8_state_smallerset.3line.txt"))
 
 ```
-As far as I am concerned it also __works and seems simpler__.
+As far as I am concerned it also __works and seems simpler__. ~5h = 3 lines.
 
-# *Monday 19.02.17*
+# Monday 19.02.17
 
 Wrote my bash script for the project and uploaded it to my MTLS repository: 
 
@@ -192,24 +192,24 @@ bash folder.sh and then it asks me for the name I want to use for my project's m
 
 
 
-# *Sunday 18.02.17*
+# Sunday 18.02.17
 
 Went through the [tutorial](http://swcarpentry.github.io/shell-novice/) for bash.
 
 
 
-# *Saturday 17.02.17*
+# Saturday 17.02.17
 Spent the whole morning still trying to figure out why this page only publishes my README file. Then changed the name of the file I want to be published to "index" I don't know what happened, but it worked. I realized after messing around for an hour I can not format the text in the way I had planned with starting some lines with indendations.
 Used ssh to log into the school's computer and edit the index file. Got a problem using nano, it would not let me save the addition. Now trying to use emacs.
 
 
 
-# *Friday 16.02.17*
+# Friday 16.02.17
 Spent the whole morning and evening trying to figure out why the diary does not publish from my master branch, google did not help.
 
 
 
-# *Thursday 15.02.17*
+# Thursday 15.02.17
 Created a Github account and made two online repositories from tutorials. Tried out various functions:
 
 `mkdir name` - _Creates empty directory to comp._

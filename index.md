@@ -1,3 +1,51 @@
+# Wednesday 21.02.17
+
+Went through the basic idea of the project. Most of it I had already figured by reading the provided material and articles. What I still do not know is how to do all of it. I keep going through the assignments for the last course and google stuff, but nothing really klicks with my mind so not really getting anywhere with this. I tried to create something that would be a "sliding window" without hard coding it. The only thing I could come up with meant that I needed a function that takes in a sequence and a value for the sliding window and then prints out a list where the whole sequence is turned into sliding window sequences. I am not even sure if this was the point or if I do really understand the concept, but sth like this: if the seq is "ADERRG" and sw = 3, then I would get ['A'D'E'+'D'E'R'+'E'R'R'+'R'R'G']. So I wanted a for loop go over the sequence starting from position 0 until the position of the sliding window value (that position itself is not included, which is also not needed, since it takes from 0 not 1) and then move on one step at a time. I tried creating a list out of the sequence so I could get the positions for them in the for loop - I did this also by using a for loop, because I couldn't think of anything else. Then I also realised that I need another list that the main for-loop can go through to get the position-number I want, so I just created a variable that makes a list out of the range of numbers in the length of the input sequence. Then I made the main for loop that I wanted that takes the numbers from the variable I just made and also uses the information about the sliding window size: essentially it puts stuff into an empty list I made earlier and that stuff is a number from the list of numbers I made that specifies a position int the sequence list I made and then extend those positions/numbers until it reaches a position/number that is specified by the sliding window value (and onto that I had to add the number that was used from the list of numbers, so the start and the end would always be fixed in relation to the sliding window value). It kept going over the actual sequence, in the sense that when it reached the end of the sequence it still continued, but the "windows" it created were not the right size, thus I figured I have to tell it that it should not go over the length of the actual input sequence with an if clause after the loop. The whole thing in the end looked like this:
+
+```
+def slidw1(seq,sw):
+    #sw1-sliding window positions after element in view
+    #sw2-sliding window positions before element in view
+    #sw1=(sw//2)
+    #sw2=-sw1
+    #print (sw2)
+    #sw=int(sw)
+    window=[]
+    all_windows=[]
+    pos_in_window=list(range(0,len(seq)))
+    #print(pos_in_window)#---[0, 1, 2, 3, 4, 5]
+    for element in seq:
+        #for positions in
+        window.append(element)
+    #print(window) #['A', 'D', 'E', 'R', 'R', 'G']
+
+    
+    
+    for number in pos_in_window: 
+        #print (number)
+                        #0 
+                        #1
+                        #2
+                        #3
+                        #4
+                        #5
+
+        if sw+number <= len(seq):
+        # if sliding window size and the number from pos_window sum up to be less or equal to the length of the sequence, so it wouldn't continue going over the sequence creating lists smaller than the window size. 
+        
+            all_windows.extend (window[number:(number+sw)])
+            #adds all the values in window list that correspond to the positions from and between number and sw+number (where it starts the value and goes one by one, so does the sliding window shift as much) into one continous list.
+         
+    
+    print (all_windows) #----['A', 'D', 'E', 'D', 'E', 'R', 'E', 'R', 'R', 'R', 'R', 'G'] this maybe works, but might be too complicated and mby does not work for larger data??
+    
+```
+
+
+
+I have no idea if this is what I should do or if it actually works. ~6h.
+
+
 # Tuesday 20.02.17
 
 Had to write a parser for the data file in my project. Layout is always:

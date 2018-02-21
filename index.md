@@ -119,7 +119,6 @@ This actually __worked__. The whole enumerate thing didn't change much though, n
 ```
 def fasta_parser(filename):
 
-    list1=[]
     
     list1=[line.rstrip() for line in (open(filename,'r')) if len(line.strip()) != 0]
     

@@ -1,3 +1,31 @@
+# Thursday 22.02.17
+
+
+Yesterday night remembered something about a dataframe mentioned in class. Was not sure what it was, but it had something to do with the parser. Maybe. I didn't want to forget it so I tried to access the computer via ssh again and made a new python script with the parser function and then tried to make a dataframe out of the dictionary. Used the fancier screen version tmux so I could modify the script in emacs  (very complicated, backspace doesn't work, but gives the help screen and messes everything up, should probably try vim, since nano does not let me save while using ssh) in one window and then run the script in the other one. Did not get much done though. For today in class I continued with the dataframe. Fortunately it is much more comfortable to do it in class on the actual computer and I managed to get an output from the script. I have yet to figure out if I even need it, but at least I managed to do something, which is already more than usual. Also read a few articles to choose five from for the presentation. I am not sure if I even have the ability to make the presentation let alone present it when trying to survive the SVM and actual project part. Also tried to think of a project plan - did not work.
+
+```
+
+import pandas as pd 
+import numpy as np
+
+
+def fasta_parser(filename):
+    
+    list1=[line.rstrip() for line in (open(filename,'r')) if len(line.strip()) != 0]
+    dict1=dict(zip(list1[::3],  zip(list1[1::3],list1[2::3])))
+    
+    
+    
+    return (dict1)
+
+frame=pd.DataFrame.from_dict(fasta_parser("8_state_smallerset.3line.txt"))
+print (frame)
+
+```
+
+I hope I need it somewhere in my life or else it was just like a regular day in terms of progress and reading. ~5h. ALso need to remember to figure out how to and why to use the onehotencoder.
+
+
 # Wednesday 21.02.17
 
 In class we went through the basic idea of the project. Most of it I had already figured by reading the provided material and articles, but these are just the very very basic ideas. What I still do not know is how to do all of it. I keep going through the assignments for the last course and google stuff, but nothing really klicks with my mind so not really getting anywhere with this. I tried to create something that would be a "sliding window" without hard coding it. The only thing I could come up with meant that I needed a function that takes in a sequence and a value for the sliding window and then prints out a list where the whole sequence is turned into sliding window sequences. I am not even sure if this was the point or if I do really understand the concept, but sth like this: if the seq is "ADERRG" and sw = 3, then I would get ['A'D'E'+'D'E'R'+'E'R'R'+'R'R'G']. So I wanted a for loop to go over the sequence starting from position 0 until the position of the sliding window value (that position itself is not included, which is also not needed, since it takes positions from 0 not 1) and then move on one step at a time. I tried creating a list out of the sequence so I could get the positions for them in the for loop - I did this also by using a for loop, because I couldn't think of anything else. Then I also realised that I need another list that the main for-loop can go through to get the position-number I want, so I just created a variable that makes a list out of the range of numbers in the length of the input sequence. Then I made the main for loop that I wanted that takes the numbers from the variable I just made and also uses the information about the sliding window size: essentially it puts stuff into an empty list I made earlier and that stuff is a number from the list of numbers I made that specifies a position in the sequence list I made and then extend those positions/numbers until it reaches a position/number that is specified by the sliding window value (and onto that I had to add the number that was used from the list of numbers, so the start and the end would always be fixed in relation to the sliding window value). It kept going over the actual sequence, in the sense that when it reached the end of the sequence it still continued, but the "windows" it created were not the right size, thus I figured I have to tell it that it should not go over the length of the actual input sequence with an if clause after the loop. The whole thing in the end looked like this:

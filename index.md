@@ -1,6 +1,54 @@
+# Saturday 24.02.18 (ESTONIA 100) and Sunday 25.02.18
+
+On Saturday messed around with my parser and sliding windows, tried to put the functions together, but could not figure out how to only get the first value of my keys in the dictionary since I have assigned a key to both the topology and the sequence and for the sliding window I only wanted the sequence. Since it's quite uncomfortable to use the ssh and emacs it takes 10x the time to figure out what is going on. At some point gave up and did not commit anything to the reporistory because it was useless. On Sunday started the fun again, using the ssh I can't see the full print out of the sequences since if it goes out of the window then in tmux I don't know how to scroll the ouput so I could see the whole thing, so I decided to create an even smaller file 
+shortseq.txt. I wanted to copy a few lines from another file to that one. I could have created some function that copies the last lines to a new file or sth, but it seemes like it will take too long until I figure out how to do that so I thought maybe just open the file I want to copy from in emacs and just copy the lines I want to a new text file I open in emacs. Seemed like a great plan - it was not. Managed to mess up emacs so many times that I had to close the command promp on my computer because I did not know how to get out of the thing. SO I created a bunch of text files to which I could not copy anything. Decided I will just make the file here, on github and pull it in. Did that: copied the lines into a txt file and pulled it in, seemed to work. Continued to edit the  sliding_window_try file so I could get the sequence value from my dictionary to a new list so I could specifically work on the sliding window on those sequences. It was weird because a lot of times when I printed the order was super messed up and I could understand what is going on - I have a hunch that it has something to do with the dictionary, that it has a weird order so when I do the for loop then the values taken from the dictionary are not in the right order. BUT FINALLY figured out how to get the first value, so the sequence value and appended that to a list. Not sure how I feel about the idea that I spent half of my life to make the whole thing into a dictionary just to go back to make them into lists - what a waste of time. Anyway, what I came up with so far is something like this: (I erased a few pointless comments)
+
+```
+def fasta_parser(filename):
+    list1=[line.rstrip() for line in (open (filename, 'r')) if len (line.strip()) != 0]
+    dict1=dict(zip(list1[::3], zip (list1[1::3], list1[2::3])))
+    return (dict1)
+
+def slidw1(seq,sw):
+
+    window=[]
+    all_windows=[]
+    aa_list=[]
+    aa_=[]
+    #print (seq)
+    #prints dictionary
+   
+    for ID in seq:
+       # print (ID)
+        #prints the dictionary keys aka ID
+       
+        aa_list.append((seq[ID])[0])
+    print(aa_list)    
+    #prints the dictionary's first values, so ID value in position 0 
+    
+     
+    pos_in_window=list(range(0,len(aa_list)))
+    
+    #print(pos_in_window)#---[0, 1,] position of sequences in list
+    
+    for element in aa_list:
+    
+        print (element) #this just prints the sequences, because I guess it takes the element as the thing that fills the positions 0 and 1 that i have.... 
+        
+```
+
+So I am able to put the file into a dictionary and now finally managed to understand how to get around in the dictionary. Not sure if I am feeling the whole dinctionary thing since it messes up the order of the key:value pairs so every time I printed something it was in a weird order and I erased my code many times and spent a lot of time, since I thought that I am doing something wrong and I hope I didn't have any good codes there somewhere in between that I erased... Now I am not sure what to do, the sliding window code that I made takes in a sequence where all the elements are separated, thus I guess I have to make another for-loop somewhere that would get all the elements separately and maybe put them into another list? I don't know, wish we had any guidance so I would not waste time making the same mistakes over and over again since I do not understand why something is wrong and I just fix it through trial and error - not a very sustainable approach for someone who does not know a thing about coding, but that is the whole theme for the course. 
+
+I keep seeing arrays in my dreams and I can't make out why, is there like a very easy way to do all of this from the begginning of separating the lines in the original file until the end for SVM input using arrays??? Probably for the binary codes or I don't even know. If only I had a deep understanding how arrays can be used, but learning that myself googleing through tons of information (most of which is useless) is a waste of precious project time, so I guess I will never use them.
+
+NOW COMES THE FUN PART: Anyway, I think the code is doing what I want it to do, but I have yet to figure out what it is. I did however change it a million times because I kept getting the output wrong to what I was expecting it to be. Why? Well, I realized that in the beginning when I made the file on github to pull it to the computer so I could access it through ssh, I copied the sequences from the command prompt, but the command prompt breaks the lines and fills them with spaces. I did remove the spaces from the ends, BUT I did not realize that there is still a page break thing in the end of the lines, so when my first lines of code take the file and make lists from list positions 0,1,2 then it just keeps out some of the valuable lines...However maybe that is not the logic behind it, because it should also then have made a key:value pair of random sequences.... I can't figure it out using the ssh, the emax, tmux and github things they are way too complicated and time consuming, I think I'll just wait for the lab to try it out, since I have to be in the airport 4AM tonight anyway then I can be in the lab 8AM sharp.
+
+I guess the idea of this project diary is just to mention with a few words the progress we have made, but since I don't really make any progress I find that the only way to motivate myself to write this thing is when I can write it in a super informal way. ALSO there are absolutely no guidelines on how to do anything in this course so until I am told to do it differently, these are going to be my entries. Last finsihing notes for the next few hours (since I will probably have lunch and then try to do this whole stuff again or something else), in addition to the generic signs of overworking, I keep having big random nosebleeds and I am losing my hair - not sure if this course is worth it.
+
+
 # Friday 23.02.18
 
-Just quickly writing up stuff so I wouldn't forget anything. The dataframe is useless, I don't know why I wasted time on it. For the sliding window, add in to the beginning and the end of the sequnce the place-holders. Empty places that in the "binary alphabet" would have a sequence of 20 zeros so they wouldn't have any weight, but important so the window to take in the first position of the sequence also (sliding window looks at the middle position). Remember to look at the pictures in my notebook. I have to split my dictionary to test and train. Test also split to validation. Read about confusion matrix. Download pycharm?
+Just quickly writing up stuff so I wouldn't forget anything. The dataframe is useless, I don't know why I wasted time on it. For the sliding window, add in to the beginning and the end of the sequnce the place-holders. Empty places that in the "binary alphabet" would have a sequence of 20 zeros so they wouldn't have any weight, but important so the window to take in the first position of the sequence also (sliding window looks at the middle position). Remember to look at the pictures in my notebook. I have to split my dictionary to test and train. Test is also split to validation. Read about confusion matrix. Download pycharm?
 
 
 # Thursday 22.02.18

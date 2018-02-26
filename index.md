@@ -18,16 +18,22 @@ def vect(seq):
         vector1[pla]=1
         listAA.append(vector1)
         
-    return listAA #nested list where first list is the 20 position sequence for a specific residue.
+    return listAA 
+    #nested list where first list is the 20 position sequence for a specific residue.
 
 def slidingwindow(seq):
-    vector2 = [[0]*20]*ws2     #emptyvector full of zeros size 20*length of sliding window//2, so if sw is 3 I have 1 list full of 20 empty zeros. I think I want to add this to the ends and beginnings of my window.
+    vector2 = [[0]*20]*ws2     #emptyvector full of zeros size 20*length of sliding 
+    window//2, so if sw is 3 I have 1 list full of 20 empty zeros. I think I want 
+    to add this to the ends and beginnings of my window.
+    
     start_finish=[]
 
        
-    for i in range (1, len (seq)): #for index in range 1,2,3,4..,len of seq, should print numbers
+    for i in range (1, len (seq)): 
+    #for index in range 1,2,3,4..,len of seq, should print numbers
         
-        start_finish.append(listAA[i-ws2:i+ws2+1]) #whatever position i is, it substracts the ws//2 : extends until i+ws//2+1
+        start_finish.append(listAA[i-ws2:i+ws2+1]) 
+        #whatever position i is, it substracts the ws//2 : extends until i+ws//2+1
 
         
        
@@ -41,12 +47,28 @@ for i in seq1:
 The print out of this is: 
 
 [[[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
-[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
-[[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
-[[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
-[[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]]
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
 
-And this is basically [[[G],[Q],[A]], [[Q][A][M]], [[A],[M],[L]], [[M],[L]]] - so a sliding window yes, ends when the sequence ends. Now I should add the vector2 I made to the beginning and the end of this...Tried it in many many ways, but it never came out the right way. I probably have to have a bunch of if statements, but I had to take a break exactly at the point the TAs discussed this. Although I am not sure what to think of the fact that in the end it has two residues...should not be correct like this. 
+[[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+
+[[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+
+[[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]]
+
+And this is basically [[[G],[Q],[A]], [[Q][A][M]], [[A],[M],[L]], [[M],[L]]] 
+so a sliding window yes, ends when the sequence ends. 
+Now I should add the vector2 I made to the beginning and the end of this...
+Tried it in many many ways, but it never came out the right way. 
+I probably have to have a bunch of if statements, but I had to take 
+a break exactly at the point the TAs discussed this. 
+Although I am not sure what to think of the fact that in the end it has two residues...
+should not be correct like this. 
 ```
 BUT if I do it in a way that we were told not to, I manage to get the positions in zeros in the beginning and end:
 
@@ -80,7 +102,13 @@ for i in seq1:
     slidingwindow(i)
 
 Print-out: 
-[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 ```
 
@@ -121,7 +149,8 @@ def slidw1(seq,sw):
     
     for element in aa_list:
     
-        print (element) #this just prints the sequences, because I guess it takes the element as the thing that fills the positions 0 and 1 that i have.... 
+        print (element) #this just prints the sequences, because 
+        I guess it takes the element as the thing that fills the positions 0 and 1 that i have.... 
         
 ```
 
@@ -202,13 +231,18 @@ def slidw1(seq,sw):
                         #5
 
         if sw+number <= len(seq):
-        # if sliding window size and the number from pos_window sum up to be less or equal to the length of the sequence, so it wouldn't continue going over the sequence creating lists smaller than the window size. 
+        # if sliding window size and the number from pos_window sum up 
+        to be less or equal to the length of the sequence, so it wouldn't 
+        continue going over the sequence creating lists smaller than the window size. 
         
             all_windows.extend (window[number:(number+sw)])
-            #adds all the values in window list that correspond to the positions from and between number and sw+number (where it starts the value and goes one by one, so does the sliding window shift as much) into one continous list.
+            #adds all the values in window list that correspond to the positions 
+            from and between number and sw+number (where it starts the value and 
+            goes one by one, so does the sliding window shift as much) into one continous list.
          
     
-    print (all_windows) #----['A', 'D', 'E', 'D', 'E', 'R', 'E', 'R', 'R', 'R', 'R', 'G'] this maybe works, but might be too complicated and mby does not work for larger data??
+    print (all_windows) #----['A', 'D', 'E', 'D', 'E', 'R', 'E', 'R', 'R', 'R', 'R', 'G'] 
+    this maybe works, but might be too complicated and mby does not work for larger data??
     
 ```
 
@@ -326,7 +360,9 @@ def fasta_parser(filename):
     
     #top_list.append(seqtop_list[1::2])
     
-    dict1=dict(zip(heading_list, zip(seqtop_list[::2], seqtop_list[1::2]))) #found a similar thing in google, zips the keys and values and since I zip both values it kind of zips a zipped value as a value with the specified key.        
+    dict1=dict(zip(heading_list, zip(seqtop_list[::2], seqtop_list[1::2])))
+    #found a similar thing in google, zips the keys and values and since I 
+    zip both values it kind of zips a zipped value as a value with the specified key.        
                 
                 #print(read)
     print (dict1)
@@ -347,7 +383,9 @@ def fasta_parser(filename):
     
         #seq, topol = dict1[key]
         
-        #assert len(seq) == len(topol) -----for testing if it's right, if the lengths are the same, the chances are it is right.
+        #assert len(seq) == len(topol) 
+        -----for testing if it's right, if the lengths are the same, 
+        the chances are it is right.
     
     return (dict1)
 

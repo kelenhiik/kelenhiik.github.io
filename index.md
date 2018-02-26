@@ -1,4 +1,5 @@
-# Monday 26.02.18 ------------- Helen 3:0 Whiteboard
+# Monday 26.02.18 
+# Helen 3:0 Whiteboard
 
 I gave up on the sliding window I was trying to make, since I couldn't get it to work and then I couldn't understand my code anymore. I tried arrays now, and with a lot of help I finally semi-understood how they work. Yet, when I tried to implement what we did in class on the whiteboard..I am not sure what to make out of the result:
 

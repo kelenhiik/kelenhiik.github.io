@@ -1,3 +1,90 @@
+# Monday 26.02.18 ------------- Helen 3:0 Whiteboard
+
+I gave up on the sliding window I was trying to make, since I couldn't get it to work and then I couldn't understand my code anymore. I tried arrays now, and with a lot of help I finally semi-understood how they work. Yet, when I tried to implement what we did in class on the whiteboard..I am not sure what to make out of the result:
+
+```
+aminoacids='GALMFWKQESPVICYHRNDT'
+seq1=['GQAML']
+ws=3
+ws2=int(ws//2)
+
+def vect(seq):
+    global listAA
+    listAA = []
+    for residues in seq:
+        vector1= [0]*20
+        pla=aminoacids.index(residues)
+        vector1[pla]=1
+        listAA.append(vector1)
+        
+    return listAA #nested list where first list is the 20 position sequence for a specific residue.
+
+def slidingwindow(seq):
+    vector2 = [[0]*20]*ws2     #emptyvector full of zeros size 20*length of sliding window//2, so if sw is 3 I have 1 list full of 20 empty zeros. I think I want to add this to the ends and beginnings of my window.
+    start_finish=[]
+
+       
+    for i in range (1, len (seq)): #for index in range 1,2,3,4..,len of seq, should print numbers
+        
+        start_finish.append(listAA[i-ws2:i+ws2+1]) #whatever position i is, it substracts the ws//2 : extends until i+ws//2+1
+
+        
+       
+        
+    print (start_finish)
+
+for i in seq1:
+    vect(i)
+    slidingwindow(i)
+   
+The print out of this is: 
+
+[[[1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+[[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+[[0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], 
+[[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]]
+
+And this is basically [[[G],[Q],[A]], [[Q][A][M]], [[A],[M],[L]], [[M],[L]]] - so a sliding window yes, ends when the sequence ends. Now I should add the vector2 I made to the beginning and the end of this...Tried it in many many ways, but it never came out the right way. I probably have to have a bunch of if statements, but I had to take a break exactly at the point the TAs discussed this. Although I am not sure what to think of the fact that in the end it has two residues...should not be correct like this. 
+```
+BUT if I do it in a way that we were told not to, I manage to get the positions in zeros in the beginning and end:
+
+```
+aminoacids='GALMFWKQESPVICYHRNDT'
+seq1=['GQAML']
+ws=3
+ws2=int(ws//2)
+
+def vect(seq):
+    global listAA
+    listAA = []
+    for residues in seq:
+        vector1= [0]*20
+        pla=aminoacids.index(residues)
+        vector1[pla]=1
+        listAA.append(vector1)
+  
+    return listAA 
+
+def slidingwindow(seq):
+    vector2 = [[0]*20]*ws2
+    seq_ws=vector2+listAA+vector2
+    
+       
+        
+    print (seq_ws)
+
+for i in seq1:
+    vect(i)
+    slidingwindow(i)
+
+Print-out: 
+[[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+```
+
+So this is exactly what I imagined it should look like in my head. That whatever sequence or window size I have, it takes the sequence and adds a vector full of zeros (empty spaces) to the end and the beginning in the correct (ws//2) amount. Thus all I have to do next is to make it print out a sliding window appropriate to the size using the flanking regions - features are the sliding windows specifying the middle residue.
+
 # Saturday 24.02.18 (ESTONIA 100) and Sunday 25.02.18
 
 On Saturday messed around with my parser and sliding windows, tried to put the functions together, but could not figure out how to only get the first value of my keys in the dictionary since I have assigned a key to both the topology and the sequence and for the sliding window I only wanted the sequence. Since it's quite uncomfortable to use the ssh and emacs it takes 10x the time to figure out what is going on. At some point gave up and did not commit anything to the reporistory because it was useless. On Sunday started the fun again, using the ssh I can't see the full print out of the sequences since if it goes out of the window then in tmux I don't know how to scroll the ouput so I could see the whole thing, so I decided to create an even smaller file 

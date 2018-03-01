@@ -3,7 +3,40 @@
 Writing an entry to this diary since my dataset is doing the 3-fold cross-validation with different window sizes. It is taking forever, even though I minimized my dataset like 10 x, so it is only running on 34 sequences. I used a code Kajetan showed me that is a built-in validating code. I made a foor loop and it's looping through odd-number window-sizes from range 3-32, also just something Kajetan suggested to use. The only parameter in addition to windowsizes I defined is cache size 3000, so it would be a bit faster, but I guess ideally I should make additional for loops to start changing all the parameters: for loop for kernels in a for loop that checks window sizes in a foor loop that checks whatever else parameters I think are necessary to change. Since it is taking so long and I am only using my 34 protein dataset I am thinking that maybe I should just use the leave-one-out validation thing, or the thing that just takes the 70% for training and 30% for testing and then make that into a for loop for different parameters and after this thing has stopped running I guess I have some idea what the range of window sizes I want to check are going to be....OR I can just do the 3 fold cross-validation again, just this time I also specify a smaller range of window sizes when checking the other parameters in for loops.
 
 
-This weeks assignment is to upload a code that creates an input for SVM and check if the SVM is capable of 
+This weeks assignment is to upload a code that creates an input for SVM and check if the SVM is capable of predicting a label for just a feature. I am not sure what the assignment description means by one sequences...So I am still using multiple ones.
+
+__Update on the windowsizes__:
+
+Felt like I need to copy the print out __while__ it was running, so I could already create a table or paste it here or something. So there I am, highlighting the output and pressing ctrl+C...only to realize...that I just killed the whole thing. I think it doesnt matter though, since the accuracy was already going down.
+This was what I managed to salvage:
+```
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:  4.4min finished
+3 0.42845398133 #first number is the windowsize, second is the average score of 3-fold validation.
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:  6.3min finished
+5 0.440179328772
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed:  8.2min finished
+7 0.456777283344
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 10.1min finished
+9 0.462498947373
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 12.0min finished
+11 0.467738627014
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 15.1min finished
+13 0.474082901137
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 16.5min finished
+15 0.470344819212
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 17.9min finished
+17 0.471930738482
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 19.7min finished
+19 0.467653670019
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 21.6min finished
+21 0.466435675239
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 24.0min finished
+23 0.461054455209
+[Parallel(n_jobs=1)]: Done   3 out of   3 | elapsed: 25.8min finished
+25 0.458901161453
+```
+
+So I guess I could go for it again with other variables and windowsizes between 9-23..although that seems like it will take forever, maybe then just the one's that cross the 47 mark, so 13-17. We'll see.
 
 
 # Wednesday 28.02.18

@@ -1,9 +1,11 @@
 # Thursday 1.03.18
 
+__Mandatory week assignment__:
+This weeks assignment is to upload a code that creates an input for SVM and check if the SVM is capable of predicting a label for just a feature. I am not sure what the assignment description means by one sequences...So I am still using multiple ones. I uploaded a code called ```train_SVM_and_predict.py``` in my ```Repo_MTLS/8state_predictor/bin/```. It takes in a smaller file I made with 34 proteins, trains on 70% of that and predicts the labels for the other 30%. I also made it to save the sequence into a txt file, absolutely not necessary, but the file is called ```prediction.txt```, also available in the bin folder. I think this is what was meant by the week assignment, to have a working code that creates an input to the SVM and that the SVM would also be able to create and output. 
+
+
 Writing an entry to this diary since my dataset is doing the 3-fold cross-validation with different window sizes. It is taking forever, even though I minimized my dataset like 10 x, so it is only running on 34 sequences. I used a code Kajetan showed me that is a built-in validating code. I made a foor loop and it's looping through odd-number window-sizes from range 3-32, also just something Kajetan suggested to use. The only parameter in addition to windowsizes I defined is cache size 3000, so it would be a bit faster, but I guess ideally I should make additional for loops to start changing all the parameters: for loop for kernels in a for loop that checks window sizes in a foor loop that checks whatever else parameters I think are necessary to change. Since it is taking so long and I am only using my 34 protein dataset I am thinking that maybe I should just use the leave-one-out validation thing, or the thing that just takes the 70% for training and 30% for testing and then make that into a for loop for different parameters and after this thing has stopped running I guess I have some idea what the range of window sizes I want to check are going to be....OR I can just do the 3 fold cross-validation again, just this time I also specify a smaller range of window sizes when checking the other parameters in for loops.
 
-
-This weeks assignment is to upload a code that creates an input for SVM and check if the SVM is capable of predicting a label for just a feature. I am not sure what the assignment description means by one sequences...So I am still using multiple ones.
 
 __Update on the windowsizes__:
 

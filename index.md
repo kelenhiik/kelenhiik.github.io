@@ -1,4 +1,12 @@
-# Thursday 1.03.18
+# Friday 02.03.18
+
+I am messing around in my home computer trying to change the code so I could just use one sequence to predict the structure to. I am not sure what I did, but at one point none of my codes worked, so I am not sure if I will push this new one in, because I maybe might have changed my good and working code also and I am not sure in which format it was working... Since I wanted to harcode a sequence I originally made another function that would encode my string sequence, but I kept getting errors in my original all_parsing_codes file, so I just undid all my modifications and decided if I want to mess something up (I just figured that the errors were because I am not using my function to parse the sequence, since it is not in the file, so I have to manually add in that I want all the letters uppercase and this was the problem all along....), then I am going to do that in another file, so I created another file, where I pretty much hardcode the sequence I want to predict the topology to. I call my good ol' functions from my all_parsing_codes file + add a few mods. It is actually predicting something!
+
+__update__:
+Okay so, TAs, you have a choice, either follow the thing I wrote yesterday OR try out the new file: ```Repo_MTLS/8state_predictor/bin/train_SVM_oneprotein_predict.py``` AND it should do what you wanted it to, I also printed out what result I got when I was running it, that's in the same file as a comment.
+
+
+# Thursday 01.03.18
 
 __Mandatory week assignment__:
 This weeks assignment is to upload a code that creates an input for SVM and check if the SVM is capable of predicting a label for just a feature. I am not sure what the assignment description means by one sequences...So I am still using multiple ones. I uploaded a code called ```train_SVM_and_predict.py``` in my ```Repo_MTLS/8state_predictor/bin/```. It takes in a smaller file I made with 34 proteins, trains on 70% of that and predicts the labels for the other 30%. I also made it to save the sequence into a txt file, absolutely not necessary, but the file is called ```prediction.txt```, also available in the bin folder. I think this is what was meant by the week assignment, to have a working code that creates an input to the SVM and that the SVM would also be able to create and output. 

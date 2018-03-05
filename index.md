@@ -7,12 +7,15 @@ n_estimators1 (here it is 300), min_samples_split1 (6) , win_len (9), score (0.5
 score = cross_val_score(model, X_train, Y_train, cv=3, verbose=True, n_jobs=-1)
 
 For Decision trees:
-Decision tree:
+
 1st pos = min_samples_split (here it is 2)
+
 2nd pos = win length (here it is 9)
+
 3d pos = 3fold cv score (here it is .425225871702)
 
-``` [Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:    4.1s finished
+``` 
+[Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:    4.1s finished
 2 9 0.425225871702 
 ```
 So best score is: 0.425225871702. This was however with the first input I had, the smallest windowsize I used, which was 9. I'll try smaller sizes also, but ptobably will not change. 

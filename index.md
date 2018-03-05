@@ -1,3 +1,27 @@
+# Monday 5.03.18
+
+Today I started to create for-loops to try different parameters in SVM, Randomforest and Decision trees. I just asked around and googled and read some articles to figure which parameters to use. I am only using 34 proteins from my dataset of over 300, but it is still taking forever with SVM. Randomforest and Decision trees were faster. I will push the files into github also. Probably under ```Repo_MTLS/8state_predictor/bin/``` with filenames ```training.py, rfc.py, decisiontree.py``` and I also saved the results in txt files ``` decisiontree_result.txt, randomforest.txt ``` and then I made a weird function to visually sort the highest score in ``` koodid ```, but it just prints out the sorted values from the txt file I give it and it sorts from the smallest andthe last values are random comments I made in the txt file, where I specify what each position means. SO to understand how to use it I just print the values, take the last numerical value it gives me, that is the highest and then go to the txt file and search for that number to know the paramteres....complicated, yes, but life is not meant to be easy.
+For random forest the best cross-validation score is: ```[Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:   16.6s finished
+300 6 9 0.559109750669``` 0.559109750669. The positions are RANDOM FOREST:
+n_estimators1 (here it is 300), min_samples_split1 (6) , win_len (9), score (0.559109750669). Other parameters there are n_jobs=-1, class_weight='balanced'
+score = cross_val_score(model, X_train, Y_train, cv=3, verbose=True, n_jobs=-1)
+
+For Decision trees:
+Decision tree:
+1st pos = min_samples_split (here it is 2)
+2nd pos = win length (here it is 9)
+3d pos = 3fold cv score (here it is .425225871702)
+
+``` [Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:    4.1s finished
+2 9 0.425225871702 
+```
+So best score is: 0.425225871702. This was however with the first input I had, the smallest windowsize I used, which was 9. I'll try smaller sizes also, but ptobably will not change. 
+
+Regular SVM is still running....
+
+
+
+
 # Friday 02.03.18
 
 I am messing around in my home computer trying to change the code so I could just use one sequence to predict the structure to. I am not sure what I did, but at one point none of my codes worked, so I am not sure if I will push this new one in, because I maybe might have changed my good and working code also and I am not sure in which format it was working... Since I wanted to harcode a sequence I originally made another function that would encode my string sequence, but I kept getting errors in my original all_parsing_codes file, so I just undid all my modifications and decided if I want to mess something up (I just figured that the errors were because I am not using my function to parse the sequence, since it is not in the file, so I have to manually add in that I want all the letters uppercase and this was the problem all along....), then I am going to do that in another file, so I created another file, where I pretty much hardcode the sequence I want to predict the topology to. I call my good ol' functions from my all_parsing_codes file + add a few mods. It is actually predicting something!

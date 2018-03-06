@@ -3,6 +3,17 @@
 Okay, something weird is going on... The whole thing for SVM, the for-loops to try different parameters, has still not finished. I made a code to find the highest value in the output I have right now. Well, it is still very manual, you have to copy the print out yourself and whatnot, since I didn't create an output file. BUT anyway, the highest value I have turns up two times in the file, at the moment it is ```0.488868580997```, only difference is parameter ```'ovo' or 'ovr'```. I also found that a value ```0.383560879535``` turns up 80 times with different parameters. This seems super odd... But I doubt that tweaking even more parameters, is ever going to take the value over the 0.50 limit, that came pretty easy with random forests. SO I am thinking of going for random forest and read more about the parameters to change perhaps.
 
 
+__update__:
+Actually, I am not even sure if I should be doing what I am doing, since I should try and run it with the PSSM profiles also...And that is going to change the accuracies anyway. AND I am only running it on 34 proteins and I heard there is some kind of bias with this. Maybe I should try and see if I can run it with PSSM's and then mess with the scores, since I have to do it anyay, right? So 
+
+1) Try and make it work with PSSM's
+2) Try different parameters (now I kind of know in which direction to look at) using sequence information and PSSM information? Maybe?
+3) Get the best parameters
+4) Train models for different input with the specified parameters
+5) Save models
+6) Make a script that makes the whole thing interactive and calls the models???
+7) Finish????
+
 # Monday 5.03.18
 
 Today I started to create for-loops to try different parameters in SVM, Randomforest and Decision trees. I just asked around and googled and read some articles to figure which parameters to use. I am only using 34 proteins from my dataset of over 300, but it is still taking forever with SVM. Randomforest and Decision trees were faster. I will push the files into github also. Probably under ```Repo_MTLS/8state_predictor/bin/``` with filenames ```training.py, rfc.py, decisiontree.py``` and I also saved the results in txt files ``` decisiontree_result.txt, randomforest.txt ``` and then I made a weird function to visually sort the highest score in ``` koodid ```, but it just prints out the sorted values from the txt file I give it and it sorts from the smallest andthe last values are random comments I made in the txt file, where I specify what each position means. SO to understand how to use it I just print the values, take the last numerical value it gives me, that is the highest and then go to the txt file and search for that number to know the paramteres....complicated, yes, but life is not meant to be easy.

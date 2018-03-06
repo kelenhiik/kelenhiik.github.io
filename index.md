@@ -25,7 +25,13 @@ SVM finished:
 ```
 Highest c-score, and highest window length, going to run it again with larger windowsizes....
 
-
+```Warning: [psiblast] lcl|Query_1 D1GL1: Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
+Warning: [psiblast] lcl|Query_1 D1GL1: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
+Warning: [psiblast] lcl|Query_1 D1GL1: Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
+Warning: [psiblast] lcl|Query_1 D1GN2: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+Warning: [psiblast] lcl|Query_1 D1GNQ: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
+```
+Should I have somehow changed the sequences in my fastas??
 # Monday 5.03.18
 
 Today I started to create for-loops to try different parameters in SVM, Randomforest and Decision trees. I just asked around and googled and read some articles to figure which parameters to use. I am only using 34 proteins from my dataset of over 300, but it is still taking forever with SVM. Randomforest and Decision trees were faster. I will push the files into github also. Probably under ```Repo_MTLS/8state_predictor/bin/``` with filenames ```training.py, rfc.py, decisiontree.py``` and I also saved the results in txt files ``` decisiontree_result.txt, randomforest.txt ``` and then I made a weird function to visually sort the highest score in ``` koodid ```, but it just prints out the sorted values from the txt file I give it and it sorts from the smallest andthe last values are random comments I made in the txt file, where I specify what each position means. SO to understand how to use it I just print the values, take the last numerical value it gives me, that is the highest and then go to the txt file and search for that number to know the paramteres....complicated, yes, but life is not meant to be easy.

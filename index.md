@@ -14,6 +14,9 @@ Actually, I am not even sure if I should be doing what I am doing, since I shoul
 6) Make a script that makes the whole thing interactive and calls the models???
 7) Finish????
 
+```https://www.biostars.org/p/14253/``` - maybe need to use this.
+
+
 # Monday 5.03.18
 
 Today I started to create for-loops to try different parameters in SVM, Randomforest and Decision trees. I just asked around and googled and read some articles to figure which parameters to use. I am only using 34 proteins from my dataset of over 300, but it is still taking forever with SVM. Randomforest and Decision trees were faster. I will push the files into github also. Probably under ```Repo_MTLS/8state_predictor/bin/``` with filenames ```training.py, rfc.py, decisiontree.py``` and I also saved the results in txt files ``` decisiontree_result.txt, randomforest.txt ``` and then I made a weird function to visually sort the highest score in ``` koodid ```, but it just prints out the sorted values from the txt file I give it and it sorts from the smallest andthe last values are random comments I made in the txt file, where I specify what each position means. SO to understand how to use it I just print the values, take the last numerical value it gives me, that is the highest and then go to the txt file and search for that number to know the paramteres....complicated, yes, but life is not meant to be easy.

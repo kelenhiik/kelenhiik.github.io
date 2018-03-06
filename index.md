@@ -16,6 +16,15 @@ Actually, I am not even sure if I should be doing what I am doing, since I shoul
 
 ```https://www.biostars.org/p/14253/``` - maybe need to use this.
 
+__update__:
+
+SVM finished:
+```
+[Parallel(n_jobs=-1)]: Done   3 out of   3 | elapsed:  6.5min finished
+10 ovr rbf 19 0.493881630949
+```
+Highest c-score, and highest window length, going to run it again with larger windowsizes....
+
 
 # Monday 5.03.18
 

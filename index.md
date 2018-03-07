@@ -1,6 +1,6 @@
 # Wednesday 7.03.18
 
-```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splits them randomly, but I still get somekind of an idea what is the best.
+```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splits them randomly, but I still get somekind of an idea what is the best. I ALSO understand that I might have used more folds for validating, but in consideration of the time, that is a task for another day...
 
 __update__:
 I did the random forest again with other windowsizes, best I got was 0.556475697657, which is smaller than before, so the model I am saving for this week's assignment will be trained RANDOM FOREST:

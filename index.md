@@ -1,3 +1,8 @@
+# Wednesday 7.03.18
+
+```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splis them randomly, but I still get somekind of an idea what is the best.
+
+
 # Tuesday 6.03.08
 
 Okay, something weird is going on... The whole thing for SVM, the for-loops to try different parameters, has still not finished. I made a code to find the highest value in the output I have right now. Well, it is still very manual, you have to copy the print out yourself and whatnot, since I didn't create an output file. BUT anyway, the highest value I have turns up two times in the file, at the moment it is ```0.488868580997```, only difference is parameter ```'ovo' or 'ovr'```. I also found that a value ```0.383560879535``` turns up 80 times with different parameters. This seems super odd... But I doubt that tweaking even more parameters, is ever going to take the value over the 0.50 limit, that came pretty easy with random forests. SO I am thinking of going for random forest and read more about the parameters to change perhaps.

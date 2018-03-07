@@ -1,6 +1,18 @@
 # Wednesday 7.03.18
 
-```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splis them randomly, but I still get somekind of an idea what is the best.
+```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splits them randomly, but I still get somekind of an idea what is the best.
+
+__update__:
+I did the random forest again with other windowsizes, best I got was 0.556475697657, which is smaller than before, so the model I am saving for this week's assignment will be trained RANDOM FOREST:
+n_estimators1 (here it is 300), min_samples_split1 (6) , win_len (9), score (0.559109750669). Other parameters there are n_jobs=-1, class_weight='balanced'. To be honest, I know it is different for the guy who did it last year, but I don't know, these are my results...
+
+The results for random forest accuracies: ```Repo_MTLS/8state_predictor/bin/randomforest.txt```, ```Repo_MTLS/8state_predictor/bin/randomforest_second_set_of_ws.txt```
+
+Decision trees: ```Repo_MTLS/8state_predictor/bin/decisiontree_result.txt```
+
+SVM results: ```Repo_MTLS/8state_predictor/bin/SVM_result.txt```
+
+I KNOW MY FOLDERS ARE A MESS, I am just trying to survive, I'll make them better when I have the time....
 
 
 # Tuesday 6.03.08

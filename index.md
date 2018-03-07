@@ -1,3 +1,6 @@
+# Friday's assignment:
+For prediction, the script is ```Repo_MTLS/8state_predictor/bin/trained_RFC_predictor.py```. Inside the script I have hardcoded two different input sequence files ( ```twoseq.txt``` and ```2protein.fasta```). They have the same proteins, but the first file is in the 3-line format (only using ID and sequence for prediction) the .fasta file is in a two-line format (ID, seq). Both of these files are in the same bin folder, specified with a path.  Both work, but for specifying one you have to __follow the comments I made in the file__. The output of running the trained_RFC_predictor.py is a print-out on the screen of ID, seq, topology AND a Predicition.txt file in ```Repo_MTLS/8state_predictor/results/prediction_results/```. Right now I did not push that .txt file into the folder so you wouldn't think I hardcoded the output. Enjoy!
+
 # Wednesday 7.03.18
 
 ```0.493881630949``` New for SVM, parameters: ```ovo rbf 19``` SO I am going to go with random forests, just to be sure I am running the validation again. I know the results are a bit biased because I am not splitting it manually and the function I am using splits them randomly, but I still get somekind of an idea what is the best. I ALSO understand that I might have used more folds for validating, but in consideration of the time, that is a task for another day...
@@ -14,6 +17,11 @@ SVM results: ```Repo_MTLS/8state_predictor/bin/SVM_result.txt```
 
 I KNOW MY FOLDERS ARE A MESS, I am just trying to survive, I'll make them better when I have the time....
 
+__assignment__: 
+I am just writing this here for now so I would not forget it, but I will upload it again on friday, so it would be the first post.
+
+So I trained a model using Random forests as classifier. The pythn script I used for training is ```Repo_MTLS/8state_predictor/bin/Randomforest_model_trainer.py``` for training it uses a file ```Repo_MTLS/8state_predictor/data/training_sets/10proteins.3line.txt```, well the location for the file in the script is ```../data/training_sets/10proteins.3line.txt``` since you are running the script from the bin folder and for the script the location of the training file is the that. The parameters I used were just number of estimators (300), minimum samples split (6), which I got from the 3-fold cross-validation, but I had to use a window-size of 7, so I could upload it here without it being to big (although I got a warning ```remote: warning: File 8state_predictor/src/small_models/RFC_predictor_smallmodel.pkl is 91.07 MB; this is larger than GitHub's recommended maximum file size of 50.00 MB
+```). Then it dumps the model to ```../src/small_models/RFC_predictor_smallmodel.pkl```, basically again the ```../``` takes you to the ```Repo_MTLS/8state_predictor/``` since the script is in the bin folder. ANYWAY for predicting something, the script is ```Repo_MTLS/8state_predictor/bin/trained_RFC_predictor.py```. Inside the script I have hardcoded an input sequence file in the same bin folder called ```twoseq.txt```. It has two proteins in it and it is a 3-line text, but I am only using the ID and the sequence, however, if you open the file you can also use the same proteins in a .fasta format (```2protein.fasta```) in the same bin folder, where I removed the secondary structure. Both work, but then you have to follow the comments I made in the file. The output of running the trained_RFC_predictor.py is a print-out on the screen of ID, seq, topology AND a Predicition.txt file in ```Repo_MTLS/8state_predictor/results/prediction_results/```. Right now I did not push that .txt file into the folder so you wouldn't think I hardcoded the output. Enjoy!
 
 # Tuesday 6.03.08
 
@@ -49,6 +57,8 @@ Warning: [psiblast] lcl|Query_1 D1GN2: Warning: Composition-based score adjustme
 Warning: [psiblast] lcl|Query_1 D1GNQ: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 
 ```
 Should I have somehow changed the sequences in my fastas??
+OH yeah, so I managed to get the PSSM profiles.
+
 # Monday 5.03.18
 
 Today I started to create for-loops to try different parameters in SVM, Randomforest and Decision trees. I just asked around and googled and read some articles to figure which parameters to use. I am only using 34 proteins from my dataset of over 300, but it is still taking forever with SVM. Randomforest and Decision trees were faster. I will push the files into github also. Probably under ```Repo_MTLS/8state_predictor/bin/``` with filenames ```training.py, rfc.py, decisiontree.py``` and I also saved the results in txt files ``` decisiontree_result.txt, randomforest.txt ``` and then I made a weird function to visually sort the highest score in ``` koodid ```, but it just prints out the sorted values from the txt file I give it and it sorts from the smallest andthe last values are random comments I made in the txt file, where I specify what each position means. SO to understand how to use it I just print the values, take the last numerical value it gives me, that is the highest and then go to the txt file and search for that number to know the paramteres....complicated, yes, but life is not meant to be easy.

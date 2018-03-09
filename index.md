@@ -1,4 +1,4 @@
-# Friday's assignment:
+# Friday's assignment (I think this was actually thursday 08.03.18)
 For prediction, the script is ```Repo_MTLS/8state_predictor/bin/trained_RFC_predictor.py```. Inside the script I have hardcoded two different input sequence files ( ```twoseq.txt``` and ```2protein.fasta```). They have the same proteins, but the first file is in the 3-line format (only using ID and sequence for prediction) the .fasta file is in a 2-line format (ID, seq)(also, fasta files are usually not a full sequence on one line, do I have to fix that in my code????). Both of these files are in the same bin folder, specified with a path.  Both work, but for specifying one you have to __follow the comments I made in the file__. The output of running the trained_RFC_predictor.py is a print-out on the screen of ID, seq, topology AND a Predicition.txt file in ```Repo_MTLS/8state_predictor/results/prediction_results/```. Right now I did not push that .txt file into the folder so you wouldn't think I hardcoded the output. Enjoy!
 
 # Wednesday 7.03.18

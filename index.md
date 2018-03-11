@@ -1,3 +1,15 @@
+# Saturday 10.03.18
+
+Well technically it is Sunday already, since its 03:30 AM, but I started on Saturday. I managed to get the PSSM thing working...I think. It's hard to follow when the print out is just numbers. I am not sure if having a mix of elements in a list is a good idea or not, I mean, some are integers and some floats? or some are stings and the other are floats? I don't know, but they look different. Anyway, I uploaded some stuff, I also ran it. The accuracy for random forest did not get better, so I have a feeling I did something wrong.
+
+Added files: 
+```
+PSSM_parser.py
+all_parsing_codes.py
+
+```
+I am not pushing everything in, since I need to have a fresh look at it tomorrow, eyes are already upside-down.
+
 # Friday 9.03.18
 
 At the airport, I'll see if I can figure out the parsing. It seems like it could be approached quite easily, just with multiple for-loops. I did try yesterday that with readlines, it takes the lines, then you can specify the positions, maybe just look at the file, skip the first and lsat lines and just manually read until the amino acid scores I want (/100) and there I have it, but I can't lose the sequence information also I guess and the ID. I did get a hint from David to check out numpy genfromtxt. I have to read the documentation. Marco suggested trying regular expression, but they seem a bit too advanced to just jump into. I don't really have a proper idea what they are. I know everyone in class is trying to book computers to run their scripts on, so it would be faster they want to use multiple computers. I am not planning on running anything big on the computer I use, but I do plan on ssh'ing it, so if it messes somebody's script up, then you have been warned about using my computer. It's not technically mine, but it is mine (computer 34)....

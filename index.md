@@ -1,5 +1,5 @@
 # Saturday 10.03.18
-
+__update__: I think I found it, I have a return statement in the wrong place and some empty lists assigned in the wrong place...
 Well technically it is Sunday already, since its 03:30 AM, but I started on Saturday. I managed to get the PSSM thing working...I think. It's hard to follow when the print out is just numbers. I am not sure if having a mix of elements in a list is a good idea or not, I mean, some are integers and some floats? or some are stings and the other are floats? I don't know, but they look different. Anyway, I uploaded some stuff, I also ran it. The accuracy for random forest did not get better, so I have a feeling I did something wrong. Probably something stupid since the code does not look very nice and pylint is also not very appreciative of my efforts....
 
 Added files: 

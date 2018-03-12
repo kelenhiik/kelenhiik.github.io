@@ -1,4 +1,16 @@
-# Saturday 10.03.18
+# 12.03.18
+
+David found the root of my problems, in the code, and John showed me how I can get bypass the pylint error where a line in my code was too long. I don't know what to do now with my life. I am not sure what the 50-proteins thing is. I am also not sure with the PSSM thing, that I guess we have to always create a PSSM profile for the protein being predicted?? Sounds weird though. Anyway, today I updated and added:
+```
+all_parsing_codes.py
+train_SVM_and_predict_PSSM.py
+pssm_oneprotein.py
+```
+So to __all_parsing_codes__ I added a code that takes in a PSSM profile, parses it into a proper format for sliding windows. Then another function for sliding windows that adds the padding and then a third one that returns all features and corresponding topologies as labels. Then a fourth one that splits that dataset to 70% training and 30% testing (I used this for scoring, BUT I WANT TO DO THE CROSS-VALIDATON AND SCORING STUFF and visualize them so I could use them in a proper format for the final report, but I DON'T know how.
+__train_SVM_and_predict_PSSM.py__ Just for checking if it even works, and also for a quick check of the score with the 70% and 30% using 34 proteins, the regular model.score() was __0.559876625989__.
+__pssm_oneprotein.py__ is like the last weeks assignment without saving a model. It trains on 70% of 34 proteins and predicts on 2 proteins that are not in the set and prints it out in a file in the bin folder named "prediction_pssm.txt".
+
+# Saturday-Sunday 10-11.03.18
 __update__: I think I found it, I have a return statement in the wrong place and some empty lists assigned in the wrong place...
 Well technically it is Sunday already, since its 03:30 AM, but I started on Saturday. I managed to get the PSSM thing working...I think. It's hard to follow when the print out is just numbers. I am not sure if having a mix of elements in a list is a good idea or not, I mean, some are integers and some floats? or some are stings and the other are floats? I don't know, but they look different. Anyway, I uploaded some stuff, I also ran it. The accuracy for random forest did not get better, so I have a feeling I did something wrong. Probably something stupid since the code does not look very nice and pylint is also not very appreciative of my efforts....
 

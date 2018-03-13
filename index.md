@@ -107,7 +107,8 @@ SVM finished:
 ```
 Highest c-score, and highest window length, going to run it again with larger windowsizes....
 
-```Warning: [psiblast] lcl|Query_1 D1GL1: Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
+```
+Warning: [psiblast] lcl|Query_1 D1GL1: Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
 Warning: [psiblast] lcl|Query_1 D1GL1: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
 Warning: [psiblast] lcl|Query_1 D1GL1: Warning: One or more U or O characters replaced by X for alignment score calculations at positions 662, 691, 765, 776 
 Warning: [psiblast] lcl|Query_1 D1GN2: Warning: Composition-based score adjustment conditioned on sequence properties and unconditional composition-based score adjustment is not supported with PSSMs, resetting to default value of standard composition-based statistics 

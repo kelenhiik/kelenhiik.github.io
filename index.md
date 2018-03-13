@@ -5,6 +5,19 @@ __Important update: tried to organize, which means I transferred all the random 
 Changed to pickle.
 Made new scripts ```eight_state_ss_predictor.py``` this is the bone-structure of the final predictor with sequences,  and one for a PSSM input ```eight_state_ss_predictor_pssm.py```
 
+Created another script ```randomize_dataset.py``` JUST SO I COULD HAVE A FILE WITH RANDOM 109 PROTEINS FROM THE BIG DATASET TO DO ALL THE CROSS-VALIDATING AND ACCURACY STUFF, SINCE I DON'T HAVE TIME ANYMORE. The file I have now is ```randomized109_proteins.3line.txt```.
+Now I want to:
+
+1) Split my dataset into 70% train and 30% test.
+2) Train a linearSVC using cross_val_score function with different window-sizes and C-scores and class_weight 'balanced' or default.
+3) Save the accuracies to a file and plot the outputs to be a separate plot for using class_weight_ 'balanced' model and default one, where for each C-score I would have a plot with window-sizes and their equivalent cross_val_scores. 
+4) Do the same thing with random_forest_classifier and decision_trees.
+5) Compare the best parameters and their corresponding cross_val_scores between the different classifiers. 
+6) Make predictions using those parameters and construct a confusion matrix to see what it's actually predicting. If something is super messed up, go back and use other parameters for testing a confusion matrix construction.
+7) If already using the prediction, take a MCC score also and the classification report, which should have all different fancy scores. When finding parameters with what I am happy with choose one model to continue with to step 6.
+
+6) Use the same sets, BUT instead of the sequences in the 70% train-set, use their PSSM's and see if the score changes between the best parameter model with and without using PSSM.
+7) survive
 
 # Monday 12.03.18
 

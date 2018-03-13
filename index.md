@@ -1,6 +1,11 @@
-# Monday 12.03.18
+__Important update: tried to organize, which means I transferred all the random sequence files that I use for testing and training and code-writing are now in data folders. I haven't changed the paths to files in the python scripts, BUT usually the one's that are important, as in PSSM profiles, those are usually in the right path, but for random tests it needs a bit of digging. The model trainer dumper and predictor have been also changed to use pickle, but there the paths have been corrected__
 
-__Important update: tried to organize, which means I transferred all the random sequence files that I use for testing and training and code-writing are now in data folders. I haven't changed the paths to files in the python scripts, BUT usually the one's that are important, as in PSSM profiles, those are usually in the right path, but for random tests it needs a bit of digging.__
+# Tuesday 13.03.18
+
+Changed to pickle.
+
+
+# Monday 12.03.18
 
 David found the root of my problems, in the code, and John showed me how I can get bypass the pylint error where a line in my code was too long. I don't know what to do now with my life. I am not sure what the 50-proteins thing is. I am also not sure with the PSSM thing, that I guess we have to always create a PSSM profile for the protein being predicted?? Sounds weird though. Anyway, today I updated and added:
 ```

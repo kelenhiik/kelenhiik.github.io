@@ -3,6 +3,7 @@ __Important update: tried to organize, which means I transferred all the random 
 # Tuesday 13.03.18
 
 Changed to pickle.
+Made new scripts ```eight_state_ss_predictor.py``` this is the bone-structure of the final predictor with sequences,  and one for a PSSM input ```eight_state_ss_predictor_pssm.py```
 
 
 # Monday 12.03.18

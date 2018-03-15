@@ -75,8 +75,8 @@ Min_samples_split: 2
  cross-validation score: 0.385595217282
  standard deviation: 0.0358676734066
  ```
- ![alt text](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/DT_CV.png)
- 
+ ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/DT_CV.png)
+ Here is a pic, for some reason only shows it in edit mode "preview changes" mode
 Decision trees PSSM CV score, best:
 ```
 Min_samples_split: 2
@@ -84,8 +84,8 @@ Min_samples_split: 2
  cross-validation score: 0.423574412019
  standard deviation: 0.0255421166333
  ```
- ![alt text](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/PSSM_decisiontrees.png)
-
+ ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/PSSM_decisiontrees.png)
+    Here is a pic, for some reason only shows it in edit mode "preview changes" mode
 # Wednesday 14.03.18
 
 Good thing no one kicks us out of the lab after 18:00, since I keep staying after 21. So today I made scripts to run cross-validations on different parameters using the PSSMs (all the results are in results/testing_results/), also ran all cross vals on the regular sequences AGAIN. Also made a confusion matrix and some other predictor scores on everything. Still don't know how to understand them or plot them. Is going to be a nice final report. But now since we know that the grades are only 40% of the summer fellowship thing AND they expect us to have relevant previous experience, so I'm already screwed, then I guess I will be happy if I just pass and maybe I will not even include all of this in the report, because I don't have time to teach myself what all of this means and how to implement different scores and to make sense of the data, since this is a all a completely new field and no one really explains anything useful here. Also did the matthew scores for everything, but then Shuhan figured out that it's only applicable if you have 2 states, thankfully I was blessed with the 8-states, good thing no one else told us this when we were running them. 

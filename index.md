@@ -6,6 +6,60 @@ Still made a parser ```parse_pdb.py``` that is going to take in a dssp assigned 
 
 For these ~100 proteins I use my ```dssp.sh``` script to get the dssp files. Then I used a one-time code, which I did not save to give me all the names of the proteins that have a ```!*``` somewhere in their sequence column in the dssp files and then manually deleted these names from the list in my ```parse_pdb.py``` script. This script then takes all the dssp files with the protein names, looks at the sequence column and the topology column. Since ```genfromtxt``` uses any amount of whitespaces for delimiting and messes everything up if I manually tried to assign the delimiter as \t\ or a number of whitspaces, it just gives the secondary structure column with all the unknown spaces filled with whatever it can find next. This means I brutally told it to change every element that is not part of the 8-states to be assigned as a 'C'. THEN I had it write the protein name, sequence and structure to  ``` dataset_of_50.txt ```. The shortest sequence from DSSP has 51 residues and the longest has 759. Then I put the file into ```data/testing.sets/```. I have 54 proteins now.
 
+So step by step:
+RUN pdb.py
+```
+import Bio
+from Bio.PDB import PDBList
+
+
+output_list = PDBList()
+PDBlist_names=['1A62', '1AH7', '1AHO', #enter your PDB protein names NOTICE I removed the information specifying the chain, since online PDB didn't understand these names and I didn't want to risk it]
+for i in PDBlist_names:
+    output_list.retrieve_pdb_file(i,pdir='PDB') #this makes a PDB directory for your files. The files will be in .ent format
+```
+
+Then in the same folder you ran your script in you have the folder PDB that has all the .ent files.
+Then you run the bash script dssp.sh, for simplicity run it in the same PDB folder:
+
+```
+for files in *.ent
+do dssp -i $files -o $files.txt
+done
+```
+Now you have your dssp files ending with .txt
+Next step, run parse_pdb.py:
+
+```
+import numpy as np
+#convert = lambda x: str(x.strip()'C') #don't need this
+
+NAMES = ('1A62', '1AH7', '1AHO', #the names of the proteins you want to parse)
+
+OUTPUT = open('./PDB/dataset_of_50.txt','w')
+for names in NAMES:
+    lower=names.lower()
+    INPUT = ('./PDB/pdb' + str(lower) + '.ent.txt')
+    pdb_ss_list = []
+    pdb_seq_list = []
+    format_pdb = (np.genfromtxt(INPUT,
+                                 skip_header=27,
+                                 dtype = str,
+                                 usecols=range(3, 5)))
+
+    for lines in format_pdb:
+        pdb_seq_list.append(lines[0])
+        if lines[1] not in 'GIHEBTSC': #this is to make up for the fact that dssp assigns an empty space for unknown structure.
+            pdb_ss_list.append('C')
+        else:
+            pdb_ss_list.append(lines[1])
+    pdb_ss_list = "".join(pdb_ss_list)
+    pdb_seq_list = "".join(pdb_seq_list)
+    OUTPUT.write('>' + str(lower) + '\n' + pdb_seq_list + '\n' + pdb_ss_list  + '\n')
+OUTPUT.close()
+```
+Notice that I accidentally erased the part that tells me which proteins have !* in their sequence. How I did that was basically just telling it that if the column has !* in it, print the name of the protein, then I had all the names and I just manually erased them from the NAMES variable.
+
 # What nice productive 2 days of my life. __To everyone else, who asked how to get the sequences, JUST READ THIS ENTRY and I can also explain in person. However, if this was the wrong approach then sry.__
 
 

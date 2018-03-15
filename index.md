@@ -65,7 +65,7 @@ Notice that I accidentally erased the part that tells me which proteins have !* 
 
 # __update: if you don't want to use this time-consuming-pointless-method, I heard dmtri also has some kind of a code for it__
 
-I removed the pdb files from github, no point in having them here. I don't know if I should also do the erase-history thing or not.
+I removed the pdb files from github, no point in having them here. I don't know if I should also do the erase-history thing or not. Managed to delete all my RFC results, but thankfully I got it from github. I did realize I did all my validations for linear SVC in a wrong way. Bless.
 
 # Wednesday 14.03.18
 

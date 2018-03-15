@@ -6,10 +6,12 @@ Still made a parser ```parse_pdb.py``` that is going to take in a dssp assigned 
 
 For these ~100 proteins I use my ```dssp.sh``` script to get the dssp files. Then I used a one-time code, which I did not save to give me all the names of the proteins that have a ```!*``` somewhere in their sequence column in the dssp files and then manually deleted these names from the list in my ```parse_pdb.py``` script. This script then takes all the dssp files with the protein names, looks at the sequence column and the topology column. Since ```genfromtxt``` uses any amount of whitespaces for delimiting and messes everything up if I manually tried to assign the delimiter as \t\ or a number of whitspaces, it just gives the secondary structure column with all the unknown spaces filled with whatever it can find next. This means I brutally told it to change every element that is not part of the 8-states to be assigned as a 'C'. THEN I had it write the protein name, sequence and structure to  ``` dataset_of_50.txt ```. The shortest sequence from DSSP has 51 residues and the longest has 759. Then I put the file into ```data/testing.sets/```.
 
-What nice productive 2 days of my life. __To everyone else, who asked how to get the sequences, JUST READ THIS ENTRY and I can also explain in person. However, if this was the wrong approach then sry.__
+# What nice productive 2 days of my life. __To everyone else, who asked how to get the sequences, JUST READ THIS ENTRY and I can also explain in person. However, if this was the wrong approach then sry.__
 
 
-__update: if you don't want to use this time-consuming-pointless-method, I heard dmtri also has some kind of a code for it__
+# __update: if you don't want to use this time-consuming-pointless-method, I heard dmtri also has some kind of a code for it__
+
+I removed the pdb files from github, no point in having them here. I don't know if I should also do the erase-history thing or not.
 
 # Wednesday 14.03.18
 

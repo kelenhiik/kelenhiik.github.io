@@ -72,25 +72,126 @@ Notice that I accidentally erased the part that tells me which proteins have !* 
 
 I removed the pdb files from github, no point in having them here. I don't know if I should also do the erase-history thing or not. Managed to delete all my RFC results, but thankfully I got it from github. I did realize I did all my validations for linear SVC in a wrong way. Bless. Also it looks like I have left out important windowsizes, doing some of it again.
 
+__SVM best (34 proteins):__
 
-Decision tree CV score, best:
+```
+c-score
+'10 ovo rbf 19 0.493881630949'
+'10 ovr rbf 19 0.493881630949'
+
+```
+I ran these parameters again with the 109 proteins I used for the others:
+```
+10 ovr rbf 19 AVERAGE: 0.459807878671 DEVIATION 0.00565548727366
+
+
+```
+
+
+
+Frome here on 109 proteins
+
+__linearSVM CV:__
+
+```
+C-score: 0.1
+ window size: 17
+ cross-validation score: 0.455578983811
+ standard deviation: 0.0116318029839 
+```
+__linearSVM CV_PSFM:__
+
+```
+C-score: 10
+ window size: 17
+ cross-validation score: 0.547061282533
+ standard deviation: 0.00638806818167
+ 
+```
+
+__Decision tree CV score, best:__
 ```
 Min_samples_split: 2
  window size: 5
  cross-validation score: 0.385595217282
  standard deviation: 0.0358676734066
- ```
- ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/DT_CV.png)
- Here is a pic, for some reason only shows it in edit mode "preview changes" mode
-Decision trees PSSM CV score, best:
+```
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/DT_CV.png)
+ 
+Here is a pic, for some reason only shows it in edit mode "preview changes" mode
+ 
+ 
+__Decision trees PSFM CV score, best:__
 ```
 Min_samples_split: 2
  window size: 11
  cross-validation score: 0.423574412019
  standard deviation: 0.0255421166333
- ```
- ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/PSSM_decisiontrees.png)
-    Here is a pic, for some reason only shows it in edit mode "preview changes" mode
+```
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/PSSM_decisiontrees.png)
+ 
+Here is a pic, for some reason only shows it in edit mode "preview changes" mode
+
+__Random forests CV:__
+
+```
+with N-estimators: 300
+ window size: 13
+Min-samples-split: 5
+ cross-validation score: 0.51531278158
+ standard deviation: 0.0113956220542
+N-estimators: 300
+ window size: 13
+Min-samples-split: 6
+ cross-validation score: 0.51548279185
+ standard deviation: 0.0127219904518
+N-estimators: 300
+ window size: 13
+Min-samples-split: 7
+ cross-validation score: 0.51538337663
+ standard deviation: 0.0106169800917
+ 
+Which is pretty robust, BUT the highest with N-estimators 300 is window size 11:
+
+N-estimators: 300
+ window size: 11
+Min-samples-split: 5
+ cross-validation score: 0.516234916972
+ standard deviation: 0.0111856767481
+ 
+But the highest overall is:
+
+N-estimators: 350
+ window size: 11
+Min-samples-split: 3
+ cross-validation score: 0.516632426826
+ standard deviation: 0.0115991238893
+
+
+```
+AND now for the interesting part:
+
+With RFC PSFM:
+
+```
+N-estimators: 350
+ window size: 7
+Min-samples-split: 2
+ cross-validation score: 0.614814380492
+ standard deviation: 0.010118862045
+ 
+And the second best
+
+N-estimators: 300
+ window size: 9
+Min-samples-split: 2
+ cross-validation score: 0.61346592169
+ standard deviation: 0.0116060646806
+ 
+```
+Plot confusion matrix for RFC PSFM wz 7 N-est 350, RFC N-est 350, wz 11, split3,  decision trees and linearSVMs. Maybe run PSSM on regular SVM also with windowsizes as for the others, just to compare.
+    
+    
 # Wednesday 14.03.18
 
 Good thing no one kicks us out of the lab after 18:00, since I keep staying after 21. So today I made scripts to run cross-validations on different parameters using the PSSMs (all the results are in results/testing_results/), also ran all cross vals on the regular sequences AGAIN. Also made a confusion matrix and some other predictor scores on everything. Still don't know how to understand them or plot them. Is going to be a nice final report. But now since we know that the grades are only 40% of the summer fellowship thing AND they expect us to have relevant previous experience, so I'm already screwed, then I guess I will be happy if I just pass and maybe I will not even include all of this in the report, because I don't have time to teach myself what all of this means and how to implement different scores and to make sense of the data, since this is a all a completely new field and no one really explains anything useful here. Also did the matthew scores for everything, but then Shuhan figured out that it's only applicable if you have 2 states, thankfully I was blessed with the 8-states, good thing no one else told us this when we were running them. 

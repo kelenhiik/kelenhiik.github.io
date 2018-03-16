@@ -297,7 +297,7 @@ pssm_oneprotein.py
 ```
 So to __all_parsing_codes__ I added a code that takes in a PSSM profile, parses it into a proper format for sliding windows. Then another function for sliding windows that adds the padding and then a third one that returns all features and corresponding topologies as labels. Then a fourth one that splits that dataset to 70% training and 30% testing (I used this for scoring, BUT I WANT TO DO THE CROSS-VALIDATON AND SCORING STUFF and visualize them so I could use them in a proper format for the final report, but I DON'T know how.
 __train_SVM_and_predict_PSSM.py__ Just for checking if it even works, and also for a quick check of the score with the 70% and 30% using 34 proteins, the regular model.score() was __0.559876625989__.
-__pssm_oneprotein.py__ is like the last weeks assignment without saving a model. It trains on 70% of 11 proteins (quicker) and predicts on 2 proteins that are not in the set and prints it out in a file in the bin folder named "prediction_pssm.txt".
+__pssm_oneprotein_predictor.py__ is like the last weeks assignment without saving a model. It trains on 70% of 11 proteins (quicker) and predicts on 2 proteins that are not in the set and prints it out in a file in the bin folder named "prediction_pssm.txt".
 
 # Saturday-Sunday 10-11.03.18
 __update__: I think I found it, I have a return statement in the wrong place and some empty lists assigned in the wrong place...

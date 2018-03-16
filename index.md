@@ -44,7 +44,7 @@ PSFM RFC_predictor_model score: 0.554569362262
 Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl'
 
 Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins: 0.537733368393
-  
+prediction: ```../results/prediction_results/Prediction_external_dataset_PSFM.txt```  
 MCC score:
 
 N-estimators: 350
@@ -53,6 +53,8 @@ Min-samples-split: 2
 
 Balanced: cross-validation score: 0.606143683525
 
+Brain is not working anymore, I'll make out what I did in the morning, I think I created new py files where I used them to create predictions on the 50 external datasets. I should make everything nice and neat, but it's 00:15 AM already, should find my way home.
+I did create new models, should not push them in.
 
 # Thursday 15.03.18
 

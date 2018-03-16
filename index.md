@@ -1,5 +1,10 @@
 __Important update: tried to organize, which means I transferred all the random sequence files that I use for testing and training and code-writing are now in data folders. I haven't changed the paths to files in the python scripts, BUT usually the one's that are important, as in PSSM profiles, those are usually in the right path, but for random tests it needs a bit of digging. The model trainer dumper and predictor have been also changed to use pickle, but there the paths have been corrected__
 
+# Friday 16.03.18
+
+Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....
+
+
 # Thursday 15.03.18
 
 Still made a parser ```parse_pdb.py``` that is going to take in a dssp assigned pdb file and writes out the name of the protein, the amino acid and the structure of it. Was a real struggle since the dssp file looks like hell and when getting columns from it using genfromtxt, it replaces all unknown values with the first value it sees, so instead of 'unknown structure' or basically 'DSSP C-state' is any character....SO I had to write out something that sayd if the values in these columns are not part of any known state, assign them as 'C'. It worked, I had the perfect file...until I realized some of the proteins are superweird and the aminoacid sequences in the DSSP output have ```!*```. DID EVERYTHING, but could not find out how to remove these files, since if google doesn't display the answer to what '!' is, then I will never find it. I had pulled 50 proteins out of PDB and a lot had the ! in there, so I pulled even more proteins,(using ```pdb.py``` around 100 from the pdb dataset I took from PISCES ```cullpdb_pc25_res1.6_R0.25_d180308_chains4177```(the resolution and percent identity cutoffs: 1,6 and 25%. R-factor cut-off 0,25 and only XRAY structures).

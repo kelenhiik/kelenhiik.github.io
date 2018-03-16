@@ -2,7 +2,7 @@ __Important update: tried to organize, which means I transferred all the random 
 
 # Friday 16.03.18
 
-Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....
+Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....Also I think the parts we are using are frequency profiles PSFM?
 
 
 # Thursday 15.03.18

@@ -93,6 +93,8 @@ Frome here on 109 proteins
 
 __linearSVM CV:__
 
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/LinearSVM_CV.png)
+
 ```
 C-score: 0.1
  window size: 17
@@ -100,6 +102,8 @@ C-score: 0.1
  standard deviation: 0.0116318029839 
 ```
 __linearSVM CV_PSFM:__
+
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/LinearSVM_PSSM.png)
 
 ```
 C-score: 10
@@ -133,6 +137,10 @@ Min_samples_split: 2
 Here is a pic, for some reason only shows it in edit mode "preview changes" mode
 
 __Random forests CV:__
+
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/RFC_CV2.png)
+
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/RFC_CV_350.png)
 
 ```
 with N-estimators: 300
@@ -171,7 +179,10 @@ Min-samples-split: 3
 ```
 AND now for the interesting part:
 
-With RFC PSFM:
+__With RFC PSFM:__
+
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/RFC_PSFM_CV.png)
+![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/RFC_PSFM_CV_350.png)
 
 ```
 N-estimators: 350

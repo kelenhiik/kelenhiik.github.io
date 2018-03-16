@@ -2,6 +2,8 @@ __Important update: tried to organize, which means I transferred all the random 
 
 # Friday 16.03.18
 
+__IMPORTANT_TODO__: Organize everything. Only leave necessary scripts. Look at the RFC scripts I made and modify them to be the good model things. Make a smaller model for the compulsory assignment and give examples to see if it's working. Write the report. Don't die.
+
 Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....Also I think the parts we are using are frequency profiles PSFM? I found that one of the external proteins matched, so I removed that. Thus I had 53 proteins, and I got the psiblast profiles for 52 of them.
 
 __LinearSVC:__

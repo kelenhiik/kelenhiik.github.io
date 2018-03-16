@@ -4,6 +4,55 @@ __Important update: tried to organize, which means I transferred all the random 
 
 Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....Also I think the parts we are using are frequency profiles PSFM? I found that one of the external proteins matched, so I removed that. Thus I had 53 proteins, and I got the psiblast profiles for 52 of them.
 
+__LinearSVC:__
+3-fold cross-validation:
+MCC score:
+
+__LinearSVC PSFM:__
+3-fold cross-validation:
+MCC score:
+
+__Decision trees:__
+3-fold cross-validation:
+MCC score:
+
+__Decision trees PSFM:__
+3-fold cross-validation:
+MCC score:
+
+__Random forests:__
+3-fold cross-validation: 0.516632426826
+Sequence RFC_predictor_model score: 0.480399408284 
+#using the 109 proteins split 70% train and 30% test using regular.score() function
+Name of this model: '../src/small_models/RFC_predictor_109.pkl'
+prediction for external dataset ```../results/prediction_results/Prediction_external_dataset_seqs.txt```
+RFC_predictor_model score for external proteins: 0.476378297835
+
+MCC score:
+
+N-estimators: 300
+ window size: 11
+Min-samples-split: 5
+
+Balanced: cross-validation score: 0.515923573991.
+
+
+__Random forests PSFM:__
+3-fold cross-validation: 0.614814380492
+PSFM RFC_predictor_model score: 0.554569362262
+  #using the 109 proteins split 70% train and 30% test using regular.score() function
+Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl'
+
+Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins: 0.537733368393
+  
+MCC score:
+
+N-estimators: 350
+ window size: 7
+Min-samples-split: 2
+
+Balanced: cross-validation score: 0.606143683525
+
 
 # Thursday 15.03.18
 
@@ -91,7 +140,7 @@ I ran these parameters again with the 109 proteins I used for the others:
 
 Frome here on 109 proteins
 
-__linearSVM CV:__
+__linearSVC CV:__
 
 ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/LinearSVM_CV.png)
 
@@ -101,7 +150,7 @@ C-score: 0.1
  cross-validation score: 0.455578983811
  standard deviation: 0.0116318029839 
 ```
-__linearSVM CV_PSFM:__
+__linearSVC CV_PSFM:__
 
 ![Pic](https://github.com/kelenhiik/Repo_MTLS/blob/master/8state_predictor/results/testing_results/LinearSVM_PSSM.png)
 
@@ -200,7 +249,7 @@ Min-samples-split: 2
  standard deviation: 0.0116060646806
  
 ```
-Plot confusion matrix for RFC PSFM wz 7 N-est 350, RFC N-est 350, wz 11, split3,  decision trees and linearSVMs. Maybe run PSSM on regular SVM also with windowsizes as for the others, just to compare.
+Plot confusion matrix for RFC PSFM wz 7 N-est 350, RFC N-est 350, wz 11, split3,  decision trees and linearSVCs. Maybe run PSSM on regular SVM also with windowsizes as for the others, just to compare.
     
     
 # Wednesday 14.03.18

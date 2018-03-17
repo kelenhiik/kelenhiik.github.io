@@ -6,21 +6,7 @@ __IMPORTANT_TODO__: Organize everything. Only leave necessary scripts. Look at t
 
 Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....Also I think the parts we are using are frequency profiles PSFM? I found that one of the external proteins matched, so I removed that. Thus I had 53 proteins, and I got the psiblast profiles for 52 of them.
 
-__LinearSVC:__
-3-fold cross-validation:
-MCC score:
 
-__LinearSVC PSFM:__
-3-fold cross-validation:
-MCC score:
-
-__Decision trees:__
-3-fold cross-validation:
-MCC score:
-
-__Decision trees PSFM:__
-3-fold cross-validation:
-MCC score:
 
 __Random forests:__
 3-fold cross-validation: 0.516632426826

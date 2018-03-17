@@ -18,9 +18,9 @@ RFC_predictor_model score for external proteins: 0.476378297835
 
 MCC score:
 
-N-estimators: 300
+N-estimators: 350
  window size: 11
-Min-samples-split: 5
+Min-samples-split: 3
 
 Balanced: cross-validation score: 0.515923573991.
 

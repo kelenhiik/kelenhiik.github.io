@@ -10,25 +10,38 @@ Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence a
 
 __Random forests:__
 3-fold cross-validation: 0.516632426826
+
 Sequence RFC_predictor_model score: 0.480399408284 
+
+#Balanced RFC_predictor_model score: 0.477646285339
+
 #using the 109 proteins split 70% train and 30% test using regular.score() function
+
 Name of this model: '../src/small_models/RFC_predictor_109.pkl'
+
 prediction for external dataset ```../results/prediction_results/Prediction_external_dataset_seqs.txt```
+
 RFC_predictor_model score for external proteins: 0.476378297835
 
 MCC score:
 
 N-estimators: 350
- window size: 11
+
+Window size: 11
+
 Min-samples-split: 3
 
-Balanced: cross-validation score: 0.515923573991.
+Balanced: cross-validation score: 0.515171607799.
 
 
 __Random forests PSFM:__
+
 3-fold cross-validation: 0.614814380492
+
 PSFM RFC_predictor_model score: 0.554569362262
+
   #using the 109 proteins split 70% train and 30% test using regular.score() function
+  
 Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl'
 
 Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins: 0.537733368393

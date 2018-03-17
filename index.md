@@ -1,6 +1,6 @@
 # Final code:
 
-# Without explanations:
+## Without explanations:
 
 ```cd Repo_MTLS/8state_predictor/```
 
@@ -18,7 +18,7 @@ __C.__ Topology prediction using random forests based on PSFM information. The i
 
 (__D.__ For this one, read the long explanation)
 
-# With explanations
+## With explanations
 
 __Inside ```Repo_MTLS/8state_predictor/``` you will find:__
 
@@ -54,7 +54,7 @@ Since all of these models have been trained on 11 sequences and additionally com
 
 
 
-===============================================================================================================================
+=====================================================================================
 
 
 

@@ -1,8 +1,73 @@
+# Final code:
+
+# Without explanations:
+
+```cd Repo_MTLS/8state_predictor/```
+
+__A.__ Topology prediction using random forests based on sequence information. Input already provided in fasta format. Also prints the predictions out on the screen and gives directions to the .txt file.
+
+```python3 RFC_eight_state_ss_predictor.py```
+
+__B.__ Topology prediction using random forests based on PSFM information. The input is the same as the previous one and already provided, however prediction is made using information from PSSM profiles of input proteins that have to be in the designated folder. Also prints the predictions out on the screen and gives directions to the .txt file.
+
+```python3 RFC_PSFM_external_dataset_predictor.py```
+
+__C.__ Topology prediction using random forests based on PSFM information. The input is one PSSM profile, which is already provided, but can be easily changed in the script. Also prints the prediction out on the screen and gives directions to the .txt file.
+
+```python3 RFC_singlePSFM_eight_state_predictor_pssm.py```
+
+(__D.__ For this one, read the long explanation)
+
+# With explanations
+
+__Inside ```Repo_MTLS/8state_predictor/``` you will find:__
+
+1. An 8-state secondary structure predictor for amino acid sequences: 
+```RFC_eight_state_ss_predictor.py```, which is already coded-ready-to-run a prediction on the 50 external proteins (actually I have 52 proteins, but I don't see how that can make a difference). Just python3 it. It prints the results on the screen and also the directions to the .txt file with the results in the directory ```./results/prediction_results/```. The default is to name the prediction results according to the date at that day, so running it multiple times in one day, without specifically changing the output filename INSIDE the script will result in __over-running__ previous prediction results. If there is a wish to change the input, then it should also be done INSIDE the script AND depending on the structure of the input:
+
+```
+>ID
+sequence
+topology
+
+OR
+
+>ID
+sequence
+
+```
+The script must also be told to use the correct parser for these files. 
+
+
+2. An 8-state secondary structure predictor for amino acid sequences trained on PSFMs. ```RFC_PSFM_external_dataset_predictor.py```. What it does is: "This predicts topology from an input file using a RFC PSFM trained model, the input is a fasta file, where all the proteins must have a PSSM-profile in the designated folder." Again, this script is already coded-ready-to-run and also predicts on the 50 external proteins. It takes in the same input, but searches for the PSSM profiles of the input proteins retrieved from Swissprot, which is also stored inside a directory in this repository. The output name on this one is also hardcoded, BUT easy to change. It prints out the results on the screen and the final print-out is the path to the prediction: ```./results/prediction_results/PSFM_Prediction_external_dataset.txt```. In order to change the input on this one, it has to be a fasta format file like the previous predictor AND it has to have the right PSSM profiles in the PSSM directory. THIS is, however, only a problem if you do not want to run the predictor on my provided example .txt file and wish to use your own PSSM profile, fear not, because for that we have:
+
+
+3. An 8-state secondary structure predictor for amino acid sequences trained on PSFMs, that predicts for only ONE PSSM profile at a time, for each consequtive one, the path has to be manually changed.
+```RFC_singlePSFM_eight_state_predictor_pssm.py```. Again, a relevant example has been provided in the code, you can just run it on the command-line, it prints out the prediction and the directory of the .txt prediction result. Here the prediction result is also named according to the date, so caution is advised.
+
+
+Since all of these models have been trained on 11 sequences and additionally compressed, because the model would otherwise be too large, the script that creates the actual model for which all the validations and results have been made for has also been provided under ```RFC_train_predict.py```. This is the one for regular sequences. This is also coded in a way that you can basically just run it, it trains a model on 109 protein sequences, dumps it for further usage and predicts the topology for the 50 external proteins and writes it out to a file (```./results/prediction_results/Prediction_from_external_dataset_seqs.txt```) + the screen. Probably completely unnecessary, since it takes tons of time, but if time is not money and you want to mess around with all the parameters and use different window sizes and what not (since here you can actually change them right in the beginning), then this script allows you to train a model however you wish and predict stuff.
+
+```
+
+
+
+
+
+===============================================================================================================================
+
+
+
+
+
+```
 __Important update: tried to organize, which means I transferred all the random sequence files that I use for testing and training and code-writing are now in data folders. I haven't changed the paths to files in the python scripts, BUT usually the one's that are important, as in PSSM profiles, those are usually in the right path, but for random tests it needs a bit of digging. The model trainer dumper and predictor have been also changed to use pickle, but there the paths have been corrected__
 
-# Friday 16.03.18
+RFC_train_predict.py ``` Repo_MTLS/8state_predictor/RFC_train_predict.py ``` - This is the file where I train the model with the optimized parameters and predict on the external proteins. I am not uploading that created model since it is too big, but just so it's there. It trains, saves, calls a model for predicting. ```../results/prediction_results/Prediction_from_external_dataset_seqs.txt```. Only for regular sequences, because I dont have time for the PSSM one and I don't want to see another texteditor in my life.
 
-__IMPORTANT_TODO__: Organize everything. Only leave necessary scripts. Look at the RFC scripts I made and modify them to be the good model things. Make a smaller model for the compulsory assignment and give examples to see if it's working. Write the report. Don't die.
+RFC_predictor_model score for external proteins: 0.476378297835.
+
+# Friday 16.03.18
 
 Shuhan showed me that dssp assigns cysteine bridges in the amino acid sequence as lowercase letters. This means that all the residues that I just turned to uppercase are actually cysteines. So I changed all my parsers to account for that and to turn it into a C. SO the PSSMs I created are actually a bit faulty. I might just have to do them again....Also I think the parts we are using are frequency profiles PSFM? I found that one of the external proteins matched, so I removed that. Thus I had 53 proteins, and I got the psiblast profiles for 52 of them.
 
@@ -17,13 +82,11 @@ Sequence RFC_predictor_model score: 0.480399408284
 
 #using the 109 proteins split 70% train and 30% test using regular.score() function
 
-Name of this model: '../src/small_models/RFC_predictor_109.pkl'
+Name of this model: '../src/small_models/RFC_predictor_109.pkl'#removed, yet easily regenerated.
 
-prediction for external dataset ```../results/prediction_results/Prediction_external_dataset_seqs.txt```
+prediction for external dataset ```../results/prediction_results/Prediction_from_external_dataset_seqs.txt```
 
 RFC_predictor_model score for external proteins: 0.476378297835
-
-MCC score:
 
 N-estimators: 350
 
@@ -42,11 +105,10 @@ PSFM RFC_predictor_model score: 0.554569362262
 
   #using the 109 proteins split 70% train and 30% test using regular.score() function
   
-Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl'
+Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl' #removed
 
 Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins: 0.537733368393
 prediction: ```../results/prediction_results/Prediction_external_dataset_PSFM.txt```  
-MCC score:
 
 N-estimators: 350
  window size: 7

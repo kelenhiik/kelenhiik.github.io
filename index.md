@@ -77,24 +77,52 @@ __Random forests:__
 3-fold cross-validation: 0.516632426826
 
 Sequence RFC_predictor_model score: 0.480399408284 
+using the 109 proteins split 70% train and 30% test using regular.score() function
 
-#Balanced RFC_predictor_model score: 0.477646285339
+(Balanced RFC_predictor_model score: 0.477646285339
+Balanced: cross-validation score: 0.515171607799.)
 
-#using the 109 proteins split 70% train and 30% test using regular.score() function
 
 Name of this model: '../src/small_models/RFC_predictor_109.pkl'#removed, yet easily regenerated.
 
 prediction for external dataset ```../results/prediction_results/Prediction_from_external_dataset_seqs.txt```
 
-RFC_predictor_model score for external proteins: 0.476378297835
-
+RFC_predictor_model score for external proteins training with : 0.476378297835
+MCC for external: Matthews correlation: 0.277806697113
+internal matthews: 0.295729632945
 N-estimators: 350
 
 Window size: 11
 
 Min-samples-split: 3
 
-Balanced: cross-validation score: 0.515171607799.
+```
+internal:
+f1-score 
+
+G    0.04 
+I    0.03 
+H   0.64 
+E    0.43 
+B    0.01 
+T    0.31 
+S    0.05 
+C    0.42 
+
+EXTERNAL: 
+F1 SCORE
+0.00
+0.00
+0.64
+0.42
+0.01
+0.30
+0.03
+0.39
+
+
+```
+
 
 
 __Random forests PSFM:__
@@ -103,18 +131,43 @@ __Random forests PSFM:__
 
 PSFM RFC_predictor_model score: 0.554569362262
 
-  #using the 109 proteins split 70% train and 30% test using regular.score() function
+#using the 109 proteins split 70% train and 30% test using regular.score() function
   
 Name of this model: '../src/small_models/RFC_PSFM_predictor_109.pkl' #removed
 
-Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins: 0.537733368393
-prediction: ```../results/prediction_results/Prediction_external_dataset_PSFM.txt```  
-
+Model.score() on external dataset = PSFM RFC_predictor_model score for external proteins using 70%: 0.537733368393
+prediction: ```../results/prediction_results/Prediction_external_dataset_PSFM.txt```  .
+external: Matthews correlation: 0.368586432101
+internal matthews: Matthews correlation: 0.405439210253
 N-estimators: 350
  window size: 7
 Min-samples-split: 2
 
 Balanced: cross-validation score: 0.606143683525
+
+```
+INTERNAL F1:
+f1-score 
+
+     0.10
+     0.01
+     0.70
+     0.60
+     0.06
+     0.36
+     0.06
+     0.48
+eXTERNAL:
+ 0.00
+ 0.00
+ 0.70
+ 0.54
+ 0.00
+ 0.31
+ 0.02
+ 0.47
+```
+
 
 Brain is not working anymore, I'll make out what I did in the morning, I think I created new py files where I used them to create predictions on the 50 external datasets. I should make everything nice and neat, but it's 00:15 AM already, should find my way home.
 I did create new models, should not push them in.

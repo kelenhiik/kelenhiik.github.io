@@ -63,8 +63,7 @@ __4.__ Since all of these models have been trained on 11 sequences and additiona
 ```
 __Important update: tried to organize, which means I transferred all the random sequence files that I use for testing and training and code-writing are now in data folders. I haven't changed the paths to files in the python scripts, BUT usually the one's that are important, as in PSSM profiles, those are usually in the right path, but for random tests it needs a bit of digging. The model trainer dumper and predictor have been also changed to use pickle, but there the paths have been corrected__
 
-RFC_train_predict.py ``` Repo_MTLS/8state_predictor/RFC_train_predict.py ``` - This is the file where I train the model with the optimized parameters and predict on the external proteins. I am not uploading that created model since it is too big, but just so it's there. It trains, saves, calls a model for predicting. ```../results/prediction_results/Prediction_from_external_dataset_seqs.txt```. Only for regular sequences, because I dont have time for the PSSM one and I don't want to see another texteditor in my life.
-
+RFC_train_predict.py ``` Repo_MTLS/8state_predictor/RFC_train_predict.py ``` - This is the file where I train the model with the optimized parameters and predict on the external proteins. I am not uploading that created model since it is too big, but just so it's there. It trains, saves, calls a model for predicting. ```../results/prediction_results/Prediction_from_external_dataset_seqs.txt```. Only for regular sequences, because I dont have time for the PSSM one and I don't want to see another texteditor in my life. 
 RFC_predictor_model score for external proteins: 0.476378297835.
 
 # Friday 16.03.18
